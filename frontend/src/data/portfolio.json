@@ -1,0 +1,41 @@
+{
+  "funds": {
+    "total": 1000000,
+    "available": 977776.5,
+    "used": 22223.5
+  },
+  "holdings": {
+    "ADANIPORTS": {
+      "symbol": "ADANIPORTS",
+      "quantity": 10,
+      "averagePrice": 1814.5,
+      "investedValue": 18145
+    },
+    "BEL": {
+      "symbol": "BEL",
+      "quantity": 10,
+      "averagePrice": 407.85,
+      "investedValue": 4078.5
+    }
+  },
+  "orders": [
+    {
+      "id": "ORD_K0689XGNK",
+      "symbol": "BEL",
+      "action": "BUY",
+      "quantity": 10,
+      "price": 407.85,
+      "timestamp": "2026-06-02T19:17:38.981Z",
+      "status": "COMPLETED"
+    },
+    {
+      "id": "ORD_6SGI644Q2",
+      "symbol": "ADANIPORTS",
+      "action": "BUY",
+      "quantity": 10,
+      "price": 1814.5,
+      "timestamp": "2026-06-02T19:12:45.023Z",
+      "status": "COMPLETED"
+    }
+  ]
+}

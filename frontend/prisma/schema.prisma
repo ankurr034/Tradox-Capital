@@ -1,0 +1,265 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String         @id @default(auto()) @map("_id") @db.ObjectId
+  email         String         @unique
+  password      String
+  name          String
+  role          String         @default("CLIENT")
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  bookmarks     Bookmark[]
+  clientProfile ClientProfile?
+  comments      Comment[]
+  followers     Follower[]     @relation("UserFollowers")
+  following     Follower[]     @relation("UserFollowing")
+  notifications Notification[]
+  priceAlerts   PriceAlert[]
+}
+
+model Follower {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  followerId  String   @db.ObjectId
+  followingId String   @db.ObjectId
+  createdAt   DateTime @default(now())
+  following   User     @relation("UserFollowers", fields: [followingId], references: [id], onDelete: Cascade)
+  follower    User     @relation("UserFollowing", fields: [followerId], references: [id], onDelete: Cascade)
+
+  @@unique([followerId, followingId])
+}
+
+model ClientProfile {
+  id              String     @id @default(auto()) @map("_id") @db.ObjectId
+  userId          String     @unique @db.ObjectId
+  phone           String?
+  pan             String?    @unique
+  address         String?
+  kycStatus       String     @default("PENDING")
+  brokerAccountId String?
+  brokerName      String?
+  brokerToken     String?
+  user            User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  notes           Note[]
+  portfolio       Portfolio?
+}
+
+model Portfolio {
+  id               String                       @id @default(auto()) @map("_id") @db.ObjectId
+  clientProfileId  String                       @unique @db.ObjectId
+  availableFunds   Float                        @default(0)
+  usedFunds        Float                        @default(0)
+  isPublic         Boolean                      @default(false)
+  modelPortfolioId String?                      @db.ObjectId
+  holdings         Holding[]
+  optimizations    OptimizationRecommendation[]
+  orders           Order[]
+  modelPortfolio   ModelPortfolio?              @relation(fields: [modelPortfolioId], references: [id])
+  clientProfile    ClientProfile                @relation(fields: [clientProfileId], references: [id], onDelete: Cascade)
+  reports          Report[]
+  transactions     Transaction[]
+}
+
+model Holding {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  portfolioId   String    @db.ObjectId
+  symbol        String
+  assetType     String    @default("STOCK")
+  quantity      Float
+  averagePrice  Float
+  investedValue Float
+  portfolio     Portfolio @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+
+  @@unique([portfolioId, symbol])
+}
+
+model Transaction {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  portfolioId String    @db.ObjectId
+  type        String
+  symbol      String?
+  quantity    Float?
+  price       Float?
+  totalAmount Float
+  timestamp   DateTime  @default(now())
+  status      String    @default("COMPLETED")
+  portfolio   Portfolio @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+}
+
+model OptimizationRecommendation {
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
+  portfolioId    String    @db.ObjectId
+  action         String
+  symbol         String
+  quantity       Float
+  estimatedPrice Float
+  reason         String
+  status         String    @default("PENDING")
+  createdAt      DateTime  @default(now())
+  portfolio      Portfolio @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+}
+
+model Note {
+  id              String        @id @default(auto()) @map("_id") @db.ObjectId
+  clientProfileId String        @db.ObjectId
+  content         String
+  authorId        String
+  createdAt       DateTime      @default(now())
+  clientProfile   ClientProfile @relation(fields: [clientProfileId], references: [id], onDelete: Cascade)
+}
+
+model Article {
+  id            String     @id @default(auto()) @map("_id") @db.ObjectId
+  title         String
+  summary       String
+  content       String
+  source        String
+  author        String?
+  imageUrl      String?
+  category      String     @default("NEWS")
+  impact        String     @default("NEUTRAL")
+  relatedSymbol String?
+  relatedIndex  String?
+  readTime      Int        @default(5)
+  publishedAt   DateTime   @default(now())
+  bookmarks     Bookmark[]
+  comments      Comment[]
+}
+
+model Bookmark {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @db.ObjectId
+  articleId String   @db.ObjectId
+  createdAt DateTime @default(now())
+  article   Article  @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, articleId])
+}
+
+model Comment {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @db.ObjectId
+  articleId String   @db.ObjectId
+  content   String
+  createdAt DateTime @default(now())
+  article   Article  @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model StockFundamentals {
+  id                String   @id @default(auto()) @map("_id") @db.ObjectId
+  symbol            String   @unique
+  companyOverview   String
+  businessModel     String
+  industryAnalysis  String
+  swotStrengths     String
+  swotWeaknesses    String
+  swotOpportunities String
+  swotThreats       String
+  peRatio           Float
+  pbRatio           Float
+  roe               Float
+  roce              Float
+  debtToEquity      Float
+  revenueGrowth     Float
+  profitGrowth      Float
+  updatedAt         DateTime @updatedAt
+}
+
+model AIAnalysis {
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  symbol           String   @unique
+  bullishFactors   String
+  bearishFactors   String
+  analystConsensus String   @default("HOLD")
+  riskScore        Int
+  growthScore      Int
+  valuationScore   Int
+  investmentThesis String
+  updatedAt        DateTime @updatedAt
+}
+
+model SystemSetting {
+  key       String   @id @map("_id")
+  value     String
+  updatedAt DateTime @updatedAt
+}
+
+model Order {
+  id           String    @id @default(auto()) @map("_id") @db.ObjectId
+  portfolioId  String    @db.ObjectId
+  type         String
+  orderType    String    @default("MARKET")
+  symbol       String
+  quantity     Float
+  targetPrice  Float?
+  triggerPrice Float?
+  status       String    @default("PENDING")
+  expiresAt    DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  portfolio    Portfolio @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+}
+
+model ModelPortfolio {
+  id          String            @id @default(auto()) @map("_id") @db.ObjectId
+  name        String            @unique
+  description String?
+  riskLevel   String
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+  allocations ModelAllocation[]
+  portfolios  Portfolio[]
+}
+
+model ModelAllocation {
+  id               String         @id @default(auto()) @map("_id") @db.ObjectId
+  modelPortfolioId String         @db.ObjectId
+  symbol           String
+  targetPercentage Float
+  modelPortfolio   ModelPortfolio @relation(fields: [modelPortfolioId], references: [id], onDelete: Cascade)
+
+  @@unique([modelPortfolioId, symbol])
+}
+
+model Notification {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @db.ObjectId
+  title     String
+  message   String
+  type      String
+  isRead    Boolean  @default(false)
+  link      String?
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model PriceAlert {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String   @db.ObjectId
+  symbol      String
+  targetPrice Float
+  condition   String
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Report {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  portfolioId String    @db.ObjectId
+  type        String
+  periodStart DateTime
+  periodEnd   DateTime
+  fileUrl     String?
+  data        String?
+  createdAt   DateTime  @default(now())
+  portfolio   Portfolio @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+}
