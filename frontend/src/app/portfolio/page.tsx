@@ -10,18 +10,13 @@ import ForecastChart from './ForecastChart';
 
 import Navbar from '@/components/Navbar';
 
-// Helper to fetch live quotes. Builds the app's own origin from request headers so
-// it works in any deployment environment (no hardcoded localhost).
+import { getBatchQuotes } from '@/lib/quotes';
+
+// Helper to fetch live quotes directly using Yahoo Finance without HTTP recursion
 async function getLiveQuotes(symbols: string[]) {
   if (symbols.length === 0) return {};
   try {
-    const h = await headers();
-    const host = h.get('host');
-    const proto = h.get('x-forwarded-proto') || (host?.includes('localhost') ? 'http' : 'https');
-    const base = host ? `${proto}://${host}` : '';
-    const res = await fetch(`${base}/api/batch-quotes?symbols=${symbols.join(',')}`, { cache: 'no-store' });
-    if (!res.ok) return {};
-    return await res.json();
+    return await getBatchQuotes(symbols);
   } catch (e) {
     return {};
   }
