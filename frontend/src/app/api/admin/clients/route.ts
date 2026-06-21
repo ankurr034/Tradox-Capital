@@ -35,7 +35,7 @@ export async function POST(req: Request) {
         clientProfile: {
           create: {
             phone: phone || undefined,
-            pan: pan || undefined,
+            pan: pan && pan.trim() !== "" ? pan : `PENDING_${Date.now()}_${Math.floor(Math.random()*1000)}`,
             kycStatus: "APPROVED",
             portfolio: {
               create: {

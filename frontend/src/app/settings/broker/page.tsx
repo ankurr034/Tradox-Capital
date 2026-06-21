@@ -19,12 +19,6 @@ export default function BrokerSettingsPage() {
 
   const fetchProfile = async () => {
     try {
-      const res = await fetch('/api/portfolio'); // We can fetch basic profile info if it's there, or we need a profile endpoint.
-      // Actually we don't have a generic profile endpoint. Let's create one or just use session.
-      // Wait, we have the brokerName in client profile. Let's create a dedicated fetch or just mock for now.
-      // I'll create a quick fetch to see if they are connected.
-      const profRes = await fetch('/api/admin/clients'); // not accessible to client
-      // We will fetch from /api/portfolio instead and include clientProfile there in the next step, or just write a small API.
       // Let's create a dedicated `/api/client/profile` endpoint later. For now, assume not connected until fetched.
       const meRes = await fetch('/api/client/profile');
       if (meRes.ok) {
