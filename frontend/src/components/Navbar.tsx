@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import LinkNext from 'next/link';
-import { TrendingUp, Menu, Sparkles, Sun, Moon, User, X, ChevronDown, LineChart, Newspaper, BookOpen, Search, Activity, Briefcase, LogOut, Bell, CheckCircle2, Home, Target, FileText, ArrowRight } from 'lucide-react';
+import { TrendingUp, Menu, Sparkles, Sun, Moon, User, X, ChevronDown, LineChart, Newspaper, BookOpen, Search, Activity, Briefcase, LogOut, Bell, CheckCircle2, Home, Target, FileText, ArrowRight, ShieldCheck } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { useTheme } from './ThemeProvider';
 import { useSession, signOut } from 'next-auth/react';
@@ -381,6 +381,17 @@ export default function Navbar() {
                   )}
                 </div>
 
+                {(session.user as any)?.role === 'ADMIN' && (
+                  <LinkNext
+                    href="/admin"
+                    className="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-bold transition shadow-sm hover:shadow-md hover:-translate-y-0.5"
+                    style={{ backgroundColor: '#0f172a', color: '#ffffff' }}
+                  >
+                    <ShieldCheck className="h-4 w-4" />
+                    <span>Admin Portal</span>
+                  </LinkNext>
+                )}
+
                 <button
                   onClick={() => signOut({ callbackUrl: '/' })}
                   className="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-bold transition"
@@ -494,6 +505,17 @@ export default function Navbar() {
                 <div className="px-4 py-2 text-xs font-semibold text-theme-muted">
                   Logged in as <span className="text-theme-primary font-bold">{session.user?.name || session.user?.email}</span>
                 </div>
+                {(session.user as any)?.role === 'ADMIN' && (
+                  <LinkNext
+                    href="/admin"
+                    onClick={() => setMobileOpen(false)}
+                    className="flex items-center gap-2 px-4 py-3 rounded-xl text-base font-bold shadow-sm"
+                    style={{ backgroundColor: '#0f172a', color: '#ffffff' }}
+                  >
+                    <ShieldCheck className="h-5 w-5" />
+                    <span>Admin Portal</span>
+                  </LinkNext>
+                )}
                 <LinkNext
                   href="/portfolio"
                   onClick={() => setMobileOpen(false)}
