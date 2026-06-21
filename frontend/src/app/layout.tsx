@@ -31,6 +31,13 @@ export const metadata: Metadata = {
   description: "Markets & Wealth Management platform providing investment intelligence, portfolio analytics, trading insights, and structured wealth solutions.",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -42,7 +49,7 @@ export default function RootLayout({
       data-theme="dark"
       className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col overflow-x-hidden">
         <AuthProvider>
           <ThemeProvider>
             {children}
