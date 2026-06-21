@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { signOut, useSession } from 'next-auth/react';
 import { 
   LayoutDashboard, Users, FolderKanban, 
-  Settings, LogOut, ShieldCheck, Activity, BarChart2
+  Settings, LogOut, ShieldCheck, Activity, BarChart2, ExternalLink
 } from 'lucide-react';
 import { useTheme } from '@/components/ThemeProvider';
 import { Sun, Moon } from 'lucide-react';
@@ -71,6 +71,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       </nav>
 
       <div className="p-4 border-t border-slate-200 dark:border-slate-800 mt-auto">
+        <Link 
+          href="/"
+          className="w-full flex items-center justify-center gap-2 px-4 py-2.5 mb-4 rounded-xl text-sm font-bold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+        >
+          <ExternalLink className="h-4 w-4" />
+          View Main Site
+        </Link>
         <div className="flex items-center justify-between mb-4 px-2">
           <div className="text-sm font-bold truncate">
             {session?.user?.name}
