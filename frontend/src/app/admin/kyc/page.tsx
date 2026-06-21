@@ -41,7 +41,7 @@ export default async function AdminKYCPage() {
         </div>
         
         {pendingProfiles.length === 0 ? (
-          <div className="p-8 text-center text-slate-500">
+          <div className="p-8 text-center text-theme-muted">
             No KYC applications found.
           </div>
         ) : (
@@ -61,7 +61,7 @@ export default async function AdminKYCPage() {
                 {pendingProfiles.map((profile) => (
                   <tr key={profile.id} className="hover:bg-slate-50">
                     <td className="px-6 py-4 font-medium">{profile.user.name}</td>
-                    <td className="px-6 py-4 text-slate-500">{profile.user.email}</td>
+                    <td className="px-6 py-4 text-theme-muted">{profile.user.email}</td>
                     <td className="px-6 py-4 font-mono">{profile.pan || 'N/A'}</td>
                     <td className="px-6 py-4">{profile.phone || 'N/A'}</td>
                     <td className="px-6 py-4">
@@ -77,7 +77,7 @@ export default async function AdminKYCPage() {
                       {profile.kycStatus === 'UNDER_REVIEW' ? (
                         <KYCActionButtons profileId={profile.id} />
                       ) : (
-                        <span className="text-xs text-slate-400 font-semibold uppercase">PROCESSED</span>
+                        <span className="text-xs text-theme-secondary font-semibold uppercase">PROCESSED</span>
                       )}
                     </td>
                   </tr>

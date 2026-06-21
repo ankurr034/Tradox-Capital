@@ -28,7 +28,7 @@ export default async function AdminDashboardPage() {
             <div className="p-2.5 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-blue-600">
               <DollarSign className="h-5 w-5" />
             </div>
-            <div className="text-sm font-bold text-slate-500">Total AUM</div>
+            <div className="text-sm font-bold text-theme-muted">Total AUM</div>
           </div>
           <div className="text-3xl font-black">
             ₹{(totalAUM / 10000000).toFixed(2)} Cr
@@ -44,7 +44,7 @@ export default async function AdminDashboardPage() {
             <div className="p-2.5 rounded-xl bg-violet-50 dark:bg-violet-500/10 text-violet-600">
               <Users className="h-5 w-5" />
             </div>
-            <div className="text-sm font-bold text-slate-500">Active Clients</div>
+            <div className="text-sm font-bold text-theme-muted">Active Clients</div>
           </div>
           <div className="text-3xl font-black">
             {totalClients}
@@ -60,12 +60,12 @@ export default async function AdminDashboardPage() {
             <div className="p-2.5 rounded-xl bg-amber-50 dark:bg-amber-500/10 text-amber-600">
               <Briefcase className="h-5 w-5" />
             </div>
-            <div className="text-sm font-bold text-slate-500">Portfolios Managed</div>
+            <div className="text-sm font-bold text-theme-muted">Portfolios Managed</div>
           </div>
           <div className="text-3xl font-black">
             {totalPortfolios}
           </div>
-          <div className="mt-2 text-xs font-bold text-slate-400">
+          <div className="mt-2 text-xs font-bold text-theme-secondary">
             Across all strategies
           </div>
         </div>

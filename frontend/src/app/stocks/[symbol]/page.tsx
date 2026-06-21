@@ -352,26 +352,26 @@ export default function StockDetailsPage() {
                   {researchData?.fundamentals ? (
                     <div className="space-y-6">
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700/50"><p className="text-sm text-slate-400">Market Cap</p><p className="text-lg font-bold">₹{(researchData.fundamentals.marketCap / 10000000).toFixed(2)} Cr</p></div>
-                        <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700/50"><p className="text-sm text-slate-400">P/E Ratio</p><p className="text-lg font-bold">{researchData.fundamentals.peRatio}</p></div>
-                        <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700/50"><p className="text-sm text-slate-400">PB Ratio</p><p className="text-lg font-bold">{researchData.fundamentals.pbRatio}</p></div>
-                        <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700/50"><p className="text-sm text-slate-400">Dividend Yield</p><p className="text-lg font-bold">{researchData.fundamentals.dividendYield}%</p></div>
-                        <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700/50"><p className="text-sm text-slate-400">ROE</p><p className="text-lg font-bold">{researchData.fundamentals.roe}%</p></div>
-                        <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700/50"><p className="text-sm text-slate-400">Debt to Equity</p><p className="text-lg font-bold">{researchData.fundamentals.debtToEquity}</p></div>
-                        <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700/50"><p className="text-sm text-slate-400">EPS</p><p className="text-lg font-bold">₹{researchData.fundamentals.eps}</p></div>
-                        <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700/50"><p className="text-sm text-slate-400">Book Value</p><p className="text-lg font-bold">₹{researchData.fundamentals.bookValue}</p></div>
-                        <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700/50"><p className="text-sm text-slate-400">Rev Growth</p><p className="text-lg font-bold text-emerald-400">+{researchData.fundamentals.revenueGrowth}%</p></div>
-                        <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700/50"><p className="text-sm text-slate-400">Profit Growth</p><p className="text-lg font-bold text-emerald-400">+{researchData.fundamentals.profitGrowth}%</p></div>
+                        <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700/50"><p className="text-sm text-theme-secondary">Market Cap</p><p className="text-lg font-bold">₹{(researchData.fundamentals.marketCap / 10000000).toFixed(2)} Cr</p></div>
+                        <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700/50"><p className="text-sm text-theme-secondary">P/E Ratio</p><p className="text-lg font-bold">{researchData.fundamentals.peRatio}</p></div>
+                        <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700/50"><p className="text-sm text-theme-secondary">PB Ratio</p><p className="text-lg font-bold">{researchData.fundamentals.pbRatio}</p></div>
+                        <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700/50"><p className="text-sm text-theme-secondary">Dividend Yield</p><p className="text-lg font-bold">{researchData.fundamentals.dividendYield}%</p></div>
+                        <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700/50"><p className="text-sm text-theme-secondary">ROE</p><p className="text-lg font-bold">{researchData.fundamentals.roe}%</p></div>
+                        <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700/50"><p className="text-sm text-theme-secondary">Debt to Equity</p><p className="text-lg font-bold">{researchData.fundamentals.debtToEquity}</p></div>
+                        <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700/50"><p className="text-sm text-theme-secondary">EPS</p><p className="text-lg font-bold">₹{researchData.fundamentals.eps}</p></div>
+                        <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700/50"><p className="text-sm text-theme-secondary">Book Value</p><p className="text-lg font-bold">₹{researchData.fundamentals.bookValue}</p></div>
+                        <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700/50"><p className="text-sm text-theme-secondary">Rev Growth</p><p className="text-lg font-bold text-emerald-400">+{researchData.fundamentals.revenueGrowth}%</p></div>
+                        <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700/50"><p className="text-sm text-theme-secondary">Profit Growth</p><p className="text-lg font-bold text-emerald-400">+{researchData.fundamentals.profitGrowth}%</p></div>
                       </div>
                       
                       <div className="p-4 bg-slate-800/50 rounded-lg">
-                        <h4 className="font-bold text-slate-200 mb-2">Company Overview</h4>
-                        <p className="text-slate-400 text-sm leading-relaxed">{researchData.fundamentals.companyOverview}</p>
+                        <h4 className="font-bold text-theme-primary mb-2">Company Overview</h4>
+                        <p className="text-theme-secondary text-sm leading-relaxed">{researchData.fundamentals.companyOverview}</p>
                       </div>
                     </div>
                   ) : (
                     <div className="text-center py-12 border-2 border-dashed border-slate-700 rounded-xl bg-slate-800/30">
-                      <p className="text-slate-400">No market data available for this symbol.</p>
+                      <p className="text-theme-secondary">No market data available for this symbol.</p>
                     </div>
                   )}
                 </div>
@@ -391,23 +391,23 @@ export default function StockDetailsPage() {
                       </div>
                       <div className="p-4 bg-slate-800/50 rounded-lg">
                         <h4 className="font-bold mb-2">Investment Thesis</h4>
-                        <p className="text-slate-300 leading-relaxed text-sm">{researchData.aiAnalysis.investmentThesis}</p>
+                        <p className="text-theme-secondary leading-relaxed text-sm">{researchData.aiAnalysis.investmentThesis}</p>
                       </div>
                       
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="p-4 bg-emerald-500/5 border border-emerald-500/20 rounded-lg">
                           <h4 className="font-bold text-emerald-500 mb-2 flex items-center gap-2">Bullish Factors</h4>
-                          <p className="text-sm text-slate-300">{researchData.aiAnalysis.bullishFactors}</p>
+                          <p className="text-sm text-theme-secondary">{researchData.aiAnalysis.bullishFactors}</p>
                         </div>
                         <div className="p-4 bg-rose-500/5 border border-rose-500/20 rounded-lg">
                           <h4 className="font-bold text-rose-500 mb-2 flex items-center gap-2">Bearish Factors</h4>
-                          <p className="text-sm text-slate-300">{researchData.aiAnalysis.bearishFactors}</p>
+                          <p className="text-sm text-theme-secondary">{researchData.aiAnalysis.bearishFactors}</p>
                         </div>
                       </div>
                     </div>
                   ) : (
                     <div className="text-center py-12 border-2 border-dashed border-slate-700 rounded-xl bg-slate-800/30">
-                      <p className="text-slate-400">AI Analysis is currently processing data for this asset.</p>
+                      <p className="text-theme-secondary">AI Analysis is currently processing data for this asset.</p>
                     </div>
                   )}
                 </div>
@@ -421,11 +421,11 @@ export default function StockDetailsPage() {
                       {researchData.news.map((item: any, idx: number) => (
                         <div key={idx} className="block p-4 bg-slate-800/50 rounded-lg hover:bg-slate-700 transition border border-slate-700 cursor-default">
                           <h4 className="font-bold text-blue-400 mb-2">{item.title}</h4>
-                          <p className="text-sm text-slate-300 mb-3">{item.summary}</p>
-                          <div className="flex items-center gap-4 text-xs font-semibold text-slate-500">
+                          <p className="text-sm text-theme-secondary mb-3">{item.summary}</p>
+                          <div className="flex items-center gap-4 text-xs font-semibold text-theme-muted">
                             <span>{new Date(item.publishedAt).toLocaleDateString()}</span>
                             <span>{item.source}</span>
-                            <span className={`px-2 py-1 rounded-full ${item.impact === 'POSITIVE' ? 'bg-emerald-500/10 text-emerald-500' : item.impact === 'NEGATIVE' ? 'bg-rose-500/10 text-rose-500' : 'bg-slate-700 text-slate-300'}`}>{item.impact}</span>
+                            <span className={`px-2 py-1 rounded-full ${item.impact === 'POSITIVE' ? 'bg-emerald-500/10 text-emerald-500' : item.impact === 'NEGATIVE' ? 'bg-rose-500/10 text-rose-500' : 'bg-slate-700 text-theme-secondary'}`}>{item.impact}</span>
                             {item.readTime && <span>{item.readTime} min read</span>}
                           </div>
                         </div>
@@ -433,7 +433,7 @@ export default function StockDetailsPage() {
                     </div>
                   ) : (
                     <div className="text-center py-12 border-2 border-dashed border-slate-700 rounded-xl bg-slate-800/30">
-                      <p className="text-slate-400">No recent news available for this symbol.</p>
+                      <p className="text-theme-secondary">No recent news available for this symbol.</p>
                     </div>
                   )}
                 </div>
@@ -445,7 +445,7 @@ export default function StockDetailsPage() {
                   {researchData?.fundamentals?.financialHistory?.length > 0 ? (
                     <div className="space-y-8">
                       <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50">
-                        <h4 className="text-lg font-bold mb-4 text-slate-200">Revenue vs Net Income (Annual)</h4>
+                        <h4 className="text-lg font-bold mb-4 text-theme-primary">Revenue vs Net Income (Annual)</h4>
                         <div className="h-72">
                           <Bar 
                             data={{
@@ -482,15 +482,15 @@ export default function StockDetailsPage() {
                         {researchData.fundamentals.financialHistory.slice(-1).map((latest: any, idx: number) => (
                           <React.Fragment key={idx}>
                             <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700/50">
-                              <p className="text-sm text-slate-400">Latest Revenue ({latest.date})</p>
+                              <p className="text-sm text-theme-secondary">Latest Revenue ({latest.date})</p>
                               <p className="text-xl font-bold text-blue-400">₹{(latest.revenue / 10000000).toFixed(2)} Cr</p>
                             </div>
                             <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700/50">
-                              <p className="text-sm text-slate-400">Latest Net Income ({latest.date})</p>
+                              <p className="text-sm text-theme-secondary">Latest Net Income ({latest.date})</p>
                               <p className="text-xl font-bold text-emerald-400">₹{(latest.netIncome / 10000000).toFixed(2)} Cr</p>
                             </div>
                             <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700/50">
-                              <p className="text-sm text-slate-400">Latest Gross Profit ({latest.date})</p>
+                              <p className="text-sm text-theme-secondary">Latest Gross Profit ({latest.date})</p>
                               <p className="text-xl font-bold text-purple-400">₹{(latest.grossProfit / 10000000).toFixed(2)} Cr</p>
                             </div>
                           </React.Fragment>
@@ -499,7 +499,7 @@ export default function StockDetailsPage() {
                     </div>
                   ) : (
                     <div className="text-center py-12 border-2 border-dashed border-slate-700 rounded-xl bg-slate-800/30">
-                      <p className="text-slate-400">Historical financial data is not available for this symbol.</p>
+                      <p className="text-theme-secondary">Historical financial data is not available for this symbol.</p>
                     </div>
                   )}
                 </div>
@@ -587,7 +587,7 @@ export default function StockDetailsPage() {
                 </button>
               ))}
             </div>
-            <button onClick={() => setIsBrokerModalOpen(false)} className="w-full mt-6 py-3 font-semibold text-slate-500 hover:text-slate-700">Cancel</button>
+            <button onClick={() => setIsBrokerModalOpen(false)} className="w-full mt-6 py-3 font-semibold text-theme-muted hover:text-slate-700">Cancel</button>
           </div>
         </div>
       )}

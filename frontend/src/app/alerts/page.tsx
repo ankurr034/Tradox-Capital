@@ -65,7 +65,7 @@ export default function AlertsPage() {
           </div>
           <div>
             <h1 className="text-3xl font-black">Price Alerts</h1>
-            <p className="text-sm font-semibold text-slate-500">Get notified when stocks hit your target prices.</p>
+            <p className="text-sm font-semibold text-theme-muted">Get notified when stocks hit your target prices.</p>
           </div>
         </div>
 
@@ -76,7 +76,7 @@ export default function AlertsPage() {
               <h2 className="text-lg font-black mb-4">Create Alert</h2>
               <form onSubmit={handleCreate} className="space-y-4">
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Symbol</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-theme-muted mb-1.5">Symbol</label>
                   <input 
                     type="text" 
                     required
@@ -87,7 +87,7 @@ export default function AlertsPage() {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Target Price (₹)</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-theme-muted mb-1.5">Target Price (₹)</label>
                   <input 
                     type="number" 
                     required
@@ -99,19 +99,19 @@ export default function AlertsPage() {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Condition</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-theme-muted mb-1.5">Condition</label>
                   <div className="flex bg-slate-50 dark:bg-slate-800 rounded-xl p-1 border border-slate-200 dark:border-slate-700">
                     <button 
                       type="button"
                       onClick={() => setCondition('ABOVE')}
-                      className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition flex items-center justify-center gap-1 ${condition === 'ABOVE' ? 'bg-emerald-500 text-white shadow-sm' : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'}`}
+                      className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition flex items-center justify-center gap-1 ${condition === 'ABOVE' ? 'bg-emerald-500 text-white shadow-sm' : 'text-theme-muted hover:text-slate-700 dark:hover:text-theme-secondary'}`}
                     >
                       <TrendingUp className="h-3 w-3" /> Goes Above
                     </button>
                     <button 
                       type="button"
                       onClick={() => setCondition('BELOW')}
-                      className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition flex items-center justify-center gap-1 ${condition === 'BELOW' ? 'bg-rose-500 text-white shadow-sm' : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'}`}
+                      className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition flex items-center justify-center gap-1 ${condition === 'BELOW' ? 'bg-rose-500 text-white shadow-sm' : 'text-theme-muted hover:text-slate-700 dark:hover:text-theme-secondary'}`}
                     >
                       <TrendingDown className="h-3 w-3" /> Goes Below
                     </button>
@@ -138,7 +138,7 @@ export default function AlertsPage() {
                   <Loader2 className="h-6 w-6 animate-spin text-blue-500" />
                 </div>
               ) : alerts.length === 0 ? (
-                <div className="text-center py-12 text-slate-500 font-bold">
+                <div className="text-center py-12 text-theme-muted font-bold">
                   You don't have any active price alerts.
                 </div>
               ) : (
@@ -154,13 +154,13 @@ export default function AlertsPage() {
                             {alert.condition}
                           </span>
                         </div>
-                        <div className="text-xs font-semibold text-slate-500 mt-1">
+                        <div className="text-xs font-semibold text-theme-muted mt-1">
                           Target: ₹{alert.targetPrice.toLocaleString()}
                         </div>
                       </div>
                       <button 
                         onClick={() => handleDelete(alert.id)}
-                        className="p-2 rounded-lg text-slate-400 hover:text-rose-500 hover:bg-rose-500/10 transition"
+                        className="p-2 rounded-lg text-theme-secondary hover:text-rose-500 hover:bg-rose-500/10 transition"
                       >
                         <Trash2 className="h-4 w-4" />
                       </button>

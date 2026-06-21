@@ -51,7 +51,7 @@ export default function ReportsPage() {
             </div>
             <div>
               <h1 className="text-3xl font-black">Tax & P&L Reports</h1>
-              <p className="text-sm font-semibold text-slate-500">View and download your capital gains statements.</p>
+              <p className="text-sm font-semibold text-theme-muted">View and download your capital gains statements.</p>
             </div>
           </div>
           <div className="flex items-center gap-3">
@@ -82,19 +82,19 @@ export default function ReportsPage() {
           <div className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm">
-                <div className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Total Turnover</div>
+                <div className="text-xs font-bold uppercase tracking-wider text-theme-muted mb-2">Total Turnover</div>
                 <div className="text-2xl font-black">₹{reportData?.turnover.toLocaleString('en-IN', { maximumFractionDigits: 2 })}</div>
               </div>
               <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm">
-                <div className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Realized Profit</div>
+                <div className="text-xs font-bold uppercase tracking-wider text-theme-muted mb-2">Realized Profit</div>
                 <div className="text-2xl font-black text-emerald-500">₹{reportData?.realizedProfit.toLocaleString('en-IN', { maximumFractionDigits: 2 })}</div>
               </div>
               <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm">
-                <div className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">STCG (Short Term)</div>
+                <div className="text-xs font-bold uppercase tracking-wider text-theme-muted mb-2">STCG (Short Term)</div>
                 <div className="text-2xl font-black text-rose-500">₹{reportData?.stcg.toLocaleString('en-IN', { maximumFractionDigits: 2 })}</div>
               </div>
               <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm">
-                <div className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">LTCG (Long Term)</div>
+                <div className="text-xs font-bold uppercase tracking-wider text-theme-muted mb-2">LTCG (Long Term)</div>
                 <div className="text-2xl font-black text-blue-500">₹{reportData?.ltcg.toLocaleString('en-IN', { maximumFractionDigits: 2 })}</div>
               </div>
             </div>
@@ -102,17 +102,17 @@ export default function ReportsPage() {
             <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm">
               <h2 className="text-lg font-black mb-6">Realized Transactions (FY {reportData?.financialYear})</h2>
               {reportData?.transactions?.length === 0 ? (
-                <div className="text-center py-12 text-slate-500 font-bold">No realized transactions found for this financial year.</div>
+                <div className="text-center py-12 text-theme-muted font-bold">No realized transactions found for this financial year.</div>
               ) : (
                 <div className="overflow-x-auto">
                   <table className="w-full text-left text-sm whitespace-nowrap">
                     <thead className="bg-slate-50 dark:bg-slate-800/50">
                       <tr>
-                        <th className="px-4 py-3 font-black text-xs uppercase tracking-wider text-slate-500">Date</th>
-                        <th className="px-4 py-3 font-black text-xs uppercase tracking-wider text-slate-500">Symbol</th>
-                        <th className="px-4 py-3 font-black text-xs uppercase tracking-wider text-slate-500 text-right">Qty</th>
-                        <th className="px-4 py-3 font-black text-xs uppercase tracking-wider text-slate-500 text-right">Price</th>
-                        <th className="px-4 py-3 font-black text-xs uppercase tracking-wider text-slate-500 text-right">Total Amount</th>
+                        <th className="px-4 py-3 font-black text-xs uppercase tracking-wider text-theme-muted">Date</th>
+                        <th className="px-4 py-3 font-black text-xs uppercase tracking-wider text-theme-muted">Symbol</th>
+                        <th className="px-4 py-3 font-black text-xs uppercase tracking-wider text-theme-muted text-right">Qty</th>
+                        <th className="px-4 py-3 font-black text-xs uppercase tracking-wider text-theme-muted text-right">Price</th>
+                        <th className="px-4 py-3 font-black text-xs uppercase tracking-wider text-theme-muted text-right">Total Amount</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-200 dark:divide-slate-800">

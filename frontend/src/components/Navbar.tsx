@@ -28,7 +28,7 @@ export default function Navbar() {
     }
   }, [session]);
 
-  const fetchNotifications = async () => {
+  async function fetchNotifications() {
     try {
       const res = await fetch('/api/notifications');
       if (res.ok) {
@@ -58,7 +58,9 @@ export default function Navbar() {
 
   React.useEffect(() => {
     if (searchQuery.length < 2) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setSearchResults([]);
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsSearching(false);
       return;
     }
@@ -489,7 +491,7 @@ export default function Navbar() {
             <div className="border-t my-2" style={{ borderColor: 'var(--border-primary)' }} />
             {session ? (
               <div className="flex flex-col gap-2">
-                <div className="px-4 py-2 text-xs font-semibold text-slate-500">
+                <div className="px-4 py-2 text-xs font-semibold text-theme-muted">
                   Logged in as <span className="text-theme-primary font-bold">{session.user?.name || session.user?.email}</span>
                 </div>
                 <LinkNext

@@ -33,14 +33,14 @@ export default async function ArticleReaderPage({ params }: { params: { id: stri
       {/* Top Navbar specifically for Reader */}
       <div className="sticky top-0 z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
         <div className="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link href="/news" className="flex items-center gap-2 text-slate-500 hover:text-slate-900 dark:hover:text-white transition font-bold text-sm">
+          <Link href="/news" className="flex items-center gap-2 text-theme-muted hover:text-slate-900 dark:hover:text-white transition font-bold text-sm">
             <ArrowLeft className="h-4 w-4" /> Back to News
           </Link>
           <div className="flex items-center gap-3">
-            <button className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 transition">
+            <button className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-theme-muted transition">
               <BookmarkPlus className="h-5 w-5" />
             </button>
-            <button className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 transition">
+            <button className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-theme-muted transition">
               <Share2 className="h-5 w-5" />
             </button>
           </div>
@@ -71,9 +71,9 @@ export default async function ArticleReaderPage({ params }: { params: { id: stri
             {article.title}
           </h1>
           
-          <div className="flex items-center gap-4 text-sm font-bold text-slate-500 border-b border-slate-200 dark:border-slate-800 pb-6">
+          <div className="flex items-center gap-4 text-sm font-bold text-theme-muted border-b border-slate-200 dark:border-slate-800 pb-6">
             <div className="flex items-center gap-2">
-              <div className="h-8 w-8 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-500">
+              <div className="h-8 w-8 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-theme-muted">
                 {article.author ? article.author.charAt(0) : 'S'}
               </div>
               <div>
@@ -112,11 +112,11 @@ export default async function ArticleReaderPage({ params }: { params: { id: stri
         {/* Tag & Action Footer */}
         <div className="border-t border-slate-200 dark:border-slate-800 pt-8 mb-16 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <span className="text-sm font-bold text-slate-500">Market Impact:</span>
+            <span className="text-sm font-bold text-theme-muted">Market Impact:</span>
             <span className={`px-3 py-1 rounded-lg text-xs font-black uppercase tracking-wider ${
               article.impact === 'POSITIVE' ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400' : 
               article.impact === 'NEGATIVE' ? 'bg-rose-100 text-rose-700 dark:bg-rose-500/10 dark:text-rose-400' : 
-              'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-400'
+              'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-theme-secondary'
             }`}>
               {article.impact}
             </span>
@@ -141,7 +141,7 @@ export default async function ArticleReaderPage({ params }: { params: { id: stri
                     <h4 className="font-bold line-clamp-3 group-hover:text-blue-600 transition leading-snug mb-3">
                       {rel.title}
                     </h4>
-                    <div className="text-xs font-semibold text-slate-500">
+                    <div className="text-xs font-semibold text-theme-muted">
                       {new Date(rel.publishedAt).toLocaleDateString()} • {rel.readTime} min read
                     </div>
                   </div>

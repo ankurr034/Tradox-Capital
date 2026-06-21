@@ -151,7 +151,7 @@ export default function NewsDashboardPage() {
                     {article.imageUrl ? (
                       <img src={article.imageUrl} alt={article.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                     ) : (
-                      <div className="w-full h-full flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900">
+                      <div className="w-full h-full flex flex-col items-center justify-center text-theme-secondary dark:text-theme-muted bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900">
                         <Newspaper className="h-10 w-10 mb-2 opacity-50" />
                         <span className="text-xs font-bold uppercase tracking-widest opacity-50">Tradox News</span>
                       </div>

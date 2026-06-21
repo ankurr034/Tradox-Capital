@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
-import yahooFinance from 'yahoo-finance2';
+import YahooFinance from 'yahoo-finance2';
+
+const yahooFinance = new (YahooFinance as any)();
 
 // In-memory cache to prevent Yahoo Finance rate limits
 const cache = new Map<string, { data: any, timestamp: number }>();

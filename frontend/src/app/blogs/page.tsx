@@ -126,10 +126,10 @@ export default function BlogsPage() {
                 
                 <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
                   <h2 className="text-3xl font-bold mb-3 leading-tight">{HERO_BLOG.title}</h2>
-                  <p className="text-slate-300 text-sm mb-6 line-clamp-2 max-w-2xl leading-relaxed">{HERO_BLOG.summary}</p>
+                  <p className="text-theme-secondary text-sm mb-6 line-clamp-2 max-w-2xl leading-relaxed">{HERO_BLOG.summary}</p>
                   
                   <div className="flex items-center justify-between text-xs font-medium">
-                    <div className="flex items-center gap-4 text-slate-400">
+                    <div className="flex items-center gap-4 text-theme-secondary">
                       <span className="flex items-center gap-1.5"><User className="h-3.5 w-3.5" /> {HERO_BLOG.author}</span>
                       <span className="flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5" /> {HERO_BLOG.date}</span>
                       <span className="flex items-center gap-1.5"><Eye className="h-3.5 w-3.5" /> {HERO_BLOG.views}</span>

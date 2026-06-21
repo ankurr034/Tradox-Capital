@@ -100,19 +100,19 @@ export default function ClientControls({ clientId, clientData }: { clientId: str
           <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl w-full max-w-sm">
             <div className="flex justify-between items-center mb-4">
               <h3 className="font-black text-lg">Edit Profile</h3>
-              <button onClick={() => setIsEditOpen(false)}><X className="h-5 w-5 text-slate-500"/></button>
+              <button onClick={() => setIsEditOpen(false)}><X className="h-5 w-5 text-theme-muted"/></button>
             </div>
             <form onSubmit={handleUpdateProfile} className="space-y-4">
               <div>
-                <label className="block text-xs font-bold text-slate-500 uppercase mb-1">Phone</label>
+                <label className="block text-xs font-bold text-theme-muted uppercase mb-1">Phone</label>
                 <input value={editForm.phone} onChange={e => setEditForm({...editForm, phone: e.target.value})} className="w-full p-2.5 rounded-lg border bg-slate-50 dark:bg-slate-800 dark:border-slate-700" />
               </div>
               <div>
-                <label className="block text-xs font-bold text-slate-500 uppercase mb-1">PAN</label>
+                <label className="block text-xs font-bold text-theme-muted uppercase mb-1">PAN</label>
                 <input value={editForm.pan} onChange={e => setEditForm({...editForm, pan: e.target.value})} className="w-full p-2.5 rounded-lg border bg-slate-50 dark:bg-slate-800 dark:border-slate-700 uppercase" />
               </div>
               <div>
-                <label className="block text-xs font-bold text-slate-500 uppercase mb-1">KYC Status</label>
+                <label className="block text-xs font-bold text-theme-muted uppercase mb-1">KYC Status</label>
                 <select value={editForm.kycStatus} onChange={e => setEditForm({...editForm, kycStatus: e.target.value})} className="w-full p-2.5 rounded-lg border bg-slate-50 dark:bg-slate-800 dark:border-slate-700">
                   <option value="PENDING">PENDING</option>
                   <option value="APPROVED">APPROVED</option>
@@ -133,13 +133,13 @@ export default function ClientControls({ clientId, clientData }: { clientId: str
           <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl w-full max-w-sm">
             <div className="flex justify-between items-center mb-4">
               <h3 className="font-black text-lg">Adjust Funds</h3>
-              <button onClick={() => setIsFundsOpen(false)}><X className="h-5 w-5 text-slate-500"/></button>
+              <button onClick={() => setIsFundsOpen(false)}><X className="h-5 w-5 text-theme-muted"/></button>
             </div>
             <form onSubmit={handleAdjustFunds} className="space-y-4">
               <div>
-                <label className="block text-xs font-bold text-slate-500 uppercase mb-1">Amount (₹)</label>
+                <label className="block text-xs font-bold text-theme-muted uppercase mb-1">Amount (₹)</label>
                 <input required type="number" step="0.01" placeholder="e.g. 50000 or -10000" value={fundsAmount} onChange={e => setFundsAmount(e.target.value)} className="w-full p-2.5 rounded-lg border bg-slate-50 dark:bg-slate-800 dark:border-slate-700" />
-                <p className="text-[10px] text-slate-500 mt-1">Use negative numbers to withdraw funds.</p>
+                <p className="text-[10px] text-theme-muted mt-1">Use negative numbers to withdraw funds.</p>
               </div>
               <button disabled={isLoading} type="submit" className="w-full py-3 bg-blue-600 text-white font-bold rounded-xl flex justify-center">
                 {isLoading ? <Loader2 className="animate-spin h-5 w-5" /> : "Process Adjustment"}

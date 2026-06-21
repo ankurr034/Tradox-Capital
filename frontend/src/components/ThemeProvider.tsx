@@ -22,9 +22,11 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
-    const stored = localStorage.getItem('laalstreet-theme') as Theme | null;
+    const stored = localStorage.getItem('tradox-theme') as Theme | null;
     if (stored === 'light' || stored === 'dark') {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setTheme(stored);
     }
   }, []);
@@ -32,7 +34,7 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
   useEffect(() => {
     if (!mounted) return;
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('laalstreet-theme', theme);
+    localStorage.setItem('tradox-theme', theme);
   }, [theme, mounted]);
 
   const toggleTheme = () => {

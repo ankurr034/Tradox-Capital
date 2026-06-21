@@ -93,10 +93,10 @@ export default function MarketOverview() {
                         border: `1px solid ${isPositive ? 'rgba(16, 185, 129, 0.3)' : 'rgba(244, 63, 94, 0.3)'}`
                       }}
                     >
-                      <span className="font-black text-sm mb-1" style={{ color: isPositive ? '#064e3b' : '#881337' }}>
+                      <span className="font-black text-sm mb-1" style={{ color: 'var(--text-primary)' }}>
                         {stock.symbol}
                       </span>
-                      <span className="font-bold text-xs" style={{ color: isPositive ? '#065f46' : '#9f1239' }}>
+                      <span className="font-bold text-xs" style={{ color: isPositive ? 'var(--success)' : 'var(--danger)' }}>
                         {isPositive ? '+' : ''}{stock.changePercent.toFixed(2)}%
                       </span>
                     </Link>
@@ -116,19 +116,19 @@ export default function MarketOverview() {
             <div className="flex rounded-xl p-1 mb-6" style={{ backgroundColor: 'var(--bg-input)' }}>
               <button 
                 onClick={() => setActiveTab('gainers')}
-                className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition ${activeTab === 'gainers' ? 'bg-emerald-500 text-white shadow-sm' : 'text-slate-400 hover:text-slate-300'}`}
+                className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition ${activeTab === 'gainers' ? 'bg-emerald-500 text-white shadow-sm' : 'text-theme-secondary hover:text-theme-secondary'}`}
               >
                 Gainers
               </button>
               <button 
                 onClick={() => setActiveTab('losers')}
-                className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition ${activeTab === 'losers' ? 'bg-rose-500 text-white shadow-sm' : 'text-slate-400 hover:text-slate-300'}`}
+                className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition ${activeTab === 'losers' ? 'bg-rose-500 text-white shadow-sm' : 'text-theme-secondary hover:text-theme-secondary'}`}
               >
                 Losers
               </button>
               <button 
                 onClick={() => setActiveTab('active')}
-                className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition ${activeTab === 'active' ? 'bg-blue-500 text-white shadow-sm' : 'text-slate-400 hover:text-slate-300'}`}
+                className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition ${activeTab === 'active' ? 'bg-blue-500 text-white shadow-sm' : 'text-theme-secondary hover:text-theme-secondary'}`}
               >
                 Active
               </button>

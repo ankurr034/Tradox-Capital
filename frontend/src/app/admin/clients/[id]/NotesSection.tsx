@@ -41,13 +41,13 @@ export default function NotesSection({ clientId, existingNotes }: { clientId: st
       
       <div className="flex-1 overflow-y-auto mb-4 space-y-4 max-h-[400px] pr-2">
         {existingNotes.length === 0 ? (
-          <div className="text-sm text-slate-500 italic text-center py-8">
+          <div className="text-sm text-theme-muted italic text-center py-8">
             No notes added for this client yet.
           </div>
         ) : (
           existingNotes.map(note => (
             <div key={note.id} className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/50">
-              <div className="text-xs text-slate-500 font-bold mb-1">
+              <div className="text-xs text-theme-muted font-bold mb-1">
                 {new Date(note.createdAt).toLocaleString()}
               </div>
               <div className="text-sm font-semibold">{note.content}</div>

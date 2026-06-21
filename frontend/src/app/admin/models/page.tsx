@@ -82,7 +82,7 @@ export default function AdminModelsPage() {
       <div className="flex items-center justify-between mb-8">
         <div>
           <h1 className="text-3xl font-black">Model Portfolios</h1>
-          <p className="text-slate-500 font-semibold mt-1">Define standard investment strategies for clients.</p>
+          <p className="text-theme-muted font-semibold mt-1">Define standard investment strategies for clients.</p>
         </div>
       </div>
 
@@ -95,7 +95,7 @@ export default function AdminModelsPage() {
             
             <form onSubmit={handleSave} className="space-y-4">
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Strategy Name</label>
+                <label className="block text-xs font-bold uppercase tracking-wider text-theme-muted mb-1.5">Strategy Name</label>
                 <input 
                   type="text" 
                   required
@@ -106,7 +106,7 @@ export default function AdminModelsPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Risk Level</label>
+                <label className="block text-xs font-bold uppercase tracking-wider text-theme-muted mb-1.5">Risk Level</label>
                 <select 
                   value={riskLevel}
                   onChange={(e) => setRiskLevel(e.target.value)}
@@ -119,7 +119,7 @@ export default function AdminModelsPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Description</label>
+                <label className="block text-xs font-bold uppercase tracking-wider text-theme-muted mb-1.5">Description</label>
                 <textarea 
                   rows={2}
                   value={description}
@@ -130,7 +130,7 @@ export default function AdminModelsPage() {
 
               <div>
                 <div className="flex justify-between items-center mb-1.5">
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-500">Allocations (%)</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-theme-muted">Allocations (%)</label>
                   <div className={`text-xs font-bold ${allocations.reduce((acc, curr) => acc + parseFloat(curr.targetPercentage || '0'), 0) === 100 ? 'text-emerald-500' : 'text-rose-500'}`}>
                     Total: {allocations.reduce((acc, curr) => acc + parseFloat(curr.targetPercentage || '0'), 0)}%
                   </div>
@@ -185,7 +185,7 @@ export default function AdminModelsPage() {
         {/* Existing Models */}
         <div className="lg:col-span-2 space-y-6">
           {models.length === 0 ? (
-            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-12 text-center text-slate-500 font-bold shadow-sm">
+            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-12 text-center text-theme-muted font-bold shadow-sm">
               No model portfolios created yet.
             </div>
           ) : (
@@ -202,13 +202,13 @@ export default function AdminModelsPage() {
                       {model.riskLevel}
                     </span>
                   </div>
-                  <p className="text-sm font-medium text-slate-500 mb-4">{model.description}</p>
+                  <p className="text-sm font-medium text-theme-muted mb-4">{model.description}</p>
                   
                   <div className="flex flex-wrap gap-2">
                     {model.allocations.map((alloc: any) => (
                       <div key={alloc.id} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800">
                         <span className="font-bold text-xs">{alloc.symbol}</span>
-                        <span className="text-[10px] font-black text-slate-500">{alloc.targetPercentage}%</span>
+                        <span className="text-[10px] font-black text-theme-muted">{alloc.targetPercentage}%</span>
                       </div>
                     ))}
                   </div>

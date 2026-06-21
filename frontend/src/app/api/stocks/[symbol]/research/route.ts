@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import YahooFinance from 'yahoo-finance2';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
-const yahooFinance = new YahooFinance();
+const yahooFinance = new (YahooFinance as any)();
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
 
 export async function GET(req: Request, { params }: { params: Promise<{ symbol: string }> }) {

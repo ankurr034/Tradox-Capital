@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import allIndicesData from '@/data/all_indices.json';
 import YahooFinance from 'yahoo-finance2';
 
-const yahooFinance = new YahooFinance();
+const yahooFinance = new (YahooFinance as any)();
 
 // Pre-compute a unique list of all stocks across all indices
 const allStocksMap = new Map<string, any>();
@@ -35,7 +35,6 @@ export async function GET(request: Request) {
       stock.sector.toLowerCase().includes(lowerQuery)
     );
 
-    // Prioritize exact symbol matches first
     matches.sort((a, b) => {
       const aExact = a.symbol.toLowerCase() === lowerQuery;
       const bExact = b.symbol.toLowerCase() === lowerQuery;
@@ -44,14 +43,14 @@ export async function GET(request: Request) {
       return 0;
     });
 
-    const topMatches = matches.slice(0, 8); // Return max 8 results for speed
+    let topMatches = matches.slice(0, 5); 
     
-    // 2. Fetch live prices for these matches
+    // 2. Fetch live prices for local matches
     if (topMatches.length > 0) {
       const yfSymbols = topMatches.map(m => m.symbol + '.NS');
-      const quotes = await yahooFinance.quote(yfSymbols).catch(() => []); // Fail silently if YF rate limits
+      const quotes = await yahooFinance.quote(yfSymbols).catch(() => []); 
       
-      const enrichedMatches = topMatches.map(match => {
+      topMatches = topMatches.map(match => {
         const quote = quotes.find((q: any) => q.symbol === match.symbol + '.NS');
         return {
           ...match,
@@ -60,9 +59,33 @@ export async function GET(request: Request) {
           changePercent: quote?.regularMarketChangePercent || null
         };
       });
-      
-      return NextResponse.json(enrichedMatches);
     }
+
+    // 3. Search Yahoo Finance directly for mutual funds and global stocks
+    try {
+      const searchResults = await yahooFinance.search(query, { newsCount: 0, quotesCount: 5 });
+      const yfMatches = searchResults.quotes.map((q: any) => ({
+        symbol: q.symbol,
+        company: q.shortname || q.longname || q.symbol,
+        sector: q.quoteType === 'MUTUALFUND' ? 'Mutual Fund' : (q.quoteType || 'Equity'),
+        price: null, // Will be fetched on demand by the client
+        change: null,
+        changePercent: null,
+        isYF: true
+      }));
+
+      // Merge and deduplicate
+      const existingSymbols = new Set(topMatches.map(m => m.symbol));
+      for (const yfm of yfMatches) {
+        if (!existingSymbols.has(yfm.symbol)) {
+          topMatches.push(yfm as any);
+        }
+      }
+    } catch (e) {
+      console.error('YF search failed', e);
+    }
+
+    return NextResponse.json(topMatches.slice(0, 8));
 
     return NextResponse.json([]);
   } catch (error) {

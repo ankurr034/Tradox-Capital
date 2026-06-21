@@ -51,7 +51,7 @@ export default function LoginPage() {
             <ShieldCheck className="h-8 w-8 text-white" />
           </div>
           <h1 className="text-2xl font-black text-slate-900 dark:text-white mb-2">Secure Login</h1>
-          <p className="text-sm font-semibold text-slate-500 dark:text-slate-400">
+          <p className="text-sm font-semibold text-theme-muted dark:text-theme-secondary">
             Access the Multi-Client PMS Dashboard
           </p>
         </div>
@@ -59,19 +59,19 @@ export default function LoginPage() {
         <div className="p-8">
           <form onSubmit={handleLogin} className="space-y-5">
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-2">Email Address</label>
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-theme-secondary mb-2">Email Address</label>
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                placeholder="admin@laalstreet.com"
+                placeholder="admin@tradoxcapital.com"
               />
             </div>
             
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-2">Password</label>
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-theme-secondary mb-2">Password</label>
               <input
                 type="password"
                 value={password}

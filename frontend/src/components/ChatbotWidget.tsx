@@ -58,27 +58,27 @@ export default function ChatbotWidget() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 font-mono">
+    <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 font-mono">
       {/* Chat Button */}
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="bg-[#00E676] hover:bg-[#00c968] text-[#09090b] p-4 rounded-full shadow-lg shadow-[#00E676]/20 transition-transform hover:scale-105 flex items-center justify-center"
+          className="bg-[#00E676] hover:bg-[#00c968] text-[#09090b] p-3 md:p-4 rounded-full shadow-lg shadow-[#00E676]/20 transition-transform hover:scale-105 flex items-center justify-center"
           title="Launch AI Assistant"
         >
-          <MessageSquare className="w-6 h-6" />
+          <MessageSquare className="w-5 h-5 md:w-6 md:h-6" />
         </button>
       )}
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="w-80 md:w-96 h-[500px] max-h-[80vh] bg-[#131316] border border-[#27272a] shadow-2xl flex flex-col rounded-sm overflow-hidden animate-in slide-in-from-bottom-5 fade-in duration-200">
+        <div className="w-[calc(100vw-2rem)] sm:w-80 md:w-96 h-[500px] max-h-[calc(100vh-4rem)] bg-[#131316] border border-[#27272a] shadow-2xl flex flex-col rounded-xl md:rounded-sm overflow-hidden animate-in slide-in-from-bottom-5 fade-in duration-200">
           
           {/* Header */}
           <div className="bg-[#1a1a1f] border-b border-[#27272a] p-3 flex justify-between items-center shrink-0">
             <div className="flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-[#00E676]" />
-              <span className="text-xs font-bold text-[#e0e0e0] tracking-widest uppercase">LAAL_AI_ASSISTANT</span>
+              <span className="text-[10px] md:text-xs font-bold text-[#e0e0e0] tracking-widest uppercase">LAAL_AI_ASSISTANT</span>
             </div>
             <button 
               onClick={() => setIsOpen(false)}
@@ -94,8 +94,8 @@ export default function ChatbotWidget() {
               <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div className={`max-w-[85%] p-3 text-xs leading-relaxed ${
                   msg.role === 'user' 
-                    ? 'bg-[#27272a] text-[#e0e0e0] rounded-l-sm rounded-tr-sm' 
-                    : 'bg-[#131316] border border-[#27272a] text-[#a1a1aa] rounded-r-sm rounded-tl-sm'
+                    ? 'bg-[#27272a] text-[#e0e0e0] rounded-l-md rounded-tr-md' 
+                    : 'bg-[#131316] border border-[#27272a] text-[#a1a1aa] rounded-r-md rounded-tl-md'
                 }`}>
                   {msg.content}
                 </div>
@@ -103,7 +103,7 @@ export default function ChatbotWidget() {
             ))}
             {isLoading && (
               <div className="flex justify-start">
-                <div className="bg-[#131316] border border-[#27272a] p-3 rounded-r-sm rounded-tl-sm flex items-center gap-2">
+                <div className="bg-[#131316] border border-[#27272a] p-3 rounded-r-md rounded-tl-md flex items-center gap-2">
                   <Loader2 className="w-3 h-3 text-[#00E676] animate-spin" />
                   <span className="text-[10px] text-[#71717a]">COMPUTING...</span>
                 </div>
@@ -120,12 +120,12 @@ export default function ChatbotWidget() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="TYPE QUERY..."
-                className="flex-1 bg-[#09090b] border border-[#27272a] text-[#e0e0e0] text-xs px-3 py-2 outline-none focus:border-[#00E676] transition-colors"
+                className="flex-1 bg-[#09090b] border border-[#27272a] text-[#e0e0e0] text-xs px-3 py-2 md:py-3 outline-none focus:border-[#00E676] transition-colors rounded-lg md:rounded-none"
               />
               <button
                 type="submit"
                 disabled={!input.trim() || isLoading}
-                className="bg-[#00E676] text-[#09090b] px-3 py-2 hover:bg-[#00c968] disabled:opacity-50 disabled:cursor-not-allowed transition flex items-center justify-center rounded-sm"
+                className="bg-[#00E676] text-[#09090b] px-3 py-2 md:py-3 hover:bg-[#00c968] disabled:opacity-50 disabled:cursor-not-allowed transition flex items-center justify-center rounded-lg md:rounded-sm"
               >
                 <Send className="w-4 h-4" />
               </button>

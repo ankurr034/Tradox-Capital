@@ -34,7 +34,7 @@ export default async function ClientDetailPage({ params }: { params: { id: strin
         </Link>
         <div>
           <h1 className="text-3xl font-black">{client.user.name}</h1>
-          <p className="text-sm font-semibold text-slate-500 flex items-center gap-2">
+          <p className="text-sm font-semibold text-theme-muted flex items-center gap-2">
             Client ID: {client.id.toUpperCase()} 
             <span className="px-2 py-0.5 rounded text-[10px] uppercase font-black bg-emerald-100 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400">
               {client.kycStatus}
@@ -54,19 +54,19 @@ export default async function ClientDetailPage({ params }: { params: { id: strin
           </h2>
           <div className="space-y-4">
             <div>
-              <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Email</div>
+              <div className="text-xs font-bold text-theme-muted uppercase tracking-wider mb-1">Email</div>
               <div className="font-semibold">{client.user.email}</div>
             </div>
             <div>
-              <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1 flex items-center gap-1"><Phone className="h-3 w-3"/> Phone</div>
+              <div className="text-xs font-bold text-theme-muted uppercase tracking-wider mb-1 flex items-center gap-1"><Phone className="h-3 w-3"/> Phone</div>
               <div className="font-semibold">{client.phone || 'Not provided'}</div>
             </div>
             <div>
-              <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1 flex items-center gap-1"><MapPin className="h-3 w-3"/> Address</div>
+              <div className="text-xs font-bold text-theme-muted uppercase tracking-wider mb-1 flex items-center gap-1"><MapPin className="h-3 w-3"/> Address</div>
               <div className="font-semibold">{client.address || 'Not provided'}</div>
             </div>
             <div>
-              <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">PAN Card</div>
+              <div className="text-xs font-bold text-theme-muted uppercase tracking-wider mb-1">PAN Card</div>
               <div className="font-semibold">{client.pan || 'Not provided'}</div>
             </div>
           </div>
@@ -87,18 +87,18 @@ export default async function ClientDetailPage({ params }: { params: { id: strin
           
           <div className="grid grid-cols-2 gap-4 mb-6">
             <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800">
-              <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Available Cash</div>
+              <div className="text-xs font-bold text-theme-muted uppercase tracking-wider mb-1">Available Cash</div>
               <div className="text-2xl font-black">₹{client.portfolio?.availableFunds.toLocaleString('en-IN') || '0.00'}</div>
             </div>
             <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800">
-              <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Invested Value</div>
+              <div className="text-xs font-bold text-theme-muted uppercase tracking-wider mb-1">Invested Value</div>
               <div className="text-2xl font-black">₹{client.portfolio?.usedFunds.toLocaleString('en-IN') || '0.00'}</div>
             </div>
           </div>
 
           <h3 className="font-bold mb-3 text-sm">Holdings ({client.portfolio?.holdings.length || 0})</h3>
           {client.portfolio?.holdings.length === 0 ? (
-            <div className="text-sm text-slate-500 italic p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50">
+            <div className="text-sm text-theme-muted italic p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50">
               Client has no active holdings.
             </div>
           ) : (
@@ -106,9 +106,9 @@ export default async function ClientDetailPage({ params }: { params: { id: strin
               <table className="w-full text-left text-sm whitespace-nowrap">
                 <thead>
                   <tr className="border-b border-slate-200 dark:border-slate-700">
-                    <th className="pb-2 font-bold text-xs text-slate-500">Symbol</th>
-                    <th className="pb-2 font-bold text-xs text-slate-500 text-right">Qty</th>
-                    <th className="pb-2 font-bold text-xs text-slate-500 text-right">Avg Price</th>
+                    <th className="pb-2 font-bold text-xs text-theme-muted">Symbol</th>
+                    <th className="pb-2 font-bold text-xs text-theme-muted text-right">Qty</th>
+                    <th className="pb-2 font-bold text-xs text-theme-muted text-right">Avg Price</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100 dark:divide-slate-800">

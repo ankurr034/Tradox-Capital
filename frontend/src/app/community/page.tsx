@@ -37,7 +37,7 @@ export default function CommunityPage() {
             <h1 className="text-4xl font-black mb-2 flex items-center gap-3">
               Social Trading <Star className="h-6 w-6 text-amber-500 fill-amber-500" />
             </h1>
-            <p className="font-semibold text-slate-500">Discover top performers, track their strategies, and copy their success.</p>
+            <p className="font-semibold text-theme-muted">Discover top performers, track their strategies, and copy their success.</p>
           </div>
           
           <div className="flex gap-3">
@@ -72,7 +72,7 @@ export default function CommunityPage() {
                 ))}
               </div>
             ) : leaderboard.length === 0 ? (
-              <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-12 text-center text-slate-500 font-bold shadow-sm">
+              <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-12 text-center text-theme-muted font-bold shadow-sm">
                 No public portfolios available yet.
               </div>
             ) : (
@@ -93,10 +93,10 @@ export default function CommunityPage() {
                       <div>
                         <h3 className="text-xl font-black">{trader.traderName}</h3>
                         <div className="flex items-center gap-3 mt-1">
-                          <span className="text-xs font-bold text-slate-500 flex items-center gap-1">
+                          <span className="text-xs font-bold text-theme-muted flex items-center gap-1">
                             <Users className="h-3 w-3" /> {trader.followersCount} Followers
                           </span>
-                          <span className="text-xs font-bold text-slate-500 flex items-center gap-1">
+                          <span className="text-xs font-bold text-theme-muted flex items-center gap-1">
                             <Star className="h-3 w-3 text-amber-500" /> Top Asset: {trader.topHolding}
                           </span>
                         </div>
@@ -105,7 +105,7 @@ export default function CommunityPage() {
                     
                     <div className="flex items-center gap-6">
                       <div className="text-right">
-                        <div className="text-[10px] font-black uppercase tracking-wider text-slate-500 mb-1">Return</div>
+                        <div className="text-[10px] font-black uppercase tracking-wider text-theme-muted mb-1">Return</div>
                         <div className={`text-2xl font-black flex items-center gap-1 ${trader.returnPercent >= 0 ? 'text-emerald-500' : 'text-rose-500'}`}>
                           {trader.returnPercent >= 0 ? <TrendingUp className="h-5 w-5" /> : null}
                           {trader.returnPercent > 0 ? '+' : ''}{trader.returnPercent.toFixed(2)}%
@@ -114,7 +114,7 @@ export default function CommunityPage() {
                       
                       <button 
                         onClick={() => handleCopyTrade(trader.id)}
-                        className="h-12 w-12 bg-slate-50 dark:bg-slate-800 hover:bg-indigo-50 dark:hover:bg-indigo-500/10 text-slate-400 hover:text-indigo-600 rounded-xl flex items-center justify-center transition-colors border border-slate-200 dark:border-slate-700 hover:border-indigo-200 dark:hover:border-indigo-800 group-hover:scale-105"
+                        className="h-12 w-12 bg-slate-50 dark:bg-slate-800 hover:bg-indigo-50 dark:hover:bg-indigo-500/10 text-theme-secondary hover:text-indigo-600 rounded-xl flex items-center justify-center transition-colors border border-slate-200 dark:border-slate-700 hover:border-indigo-200 dark:hover:border-indigo-800 group-hover:scale-105"
                         title="Copy Trade"
                       >
                         <Copy className="h-5 w-5" />
@@ -146,7 +146,7 @@ export default function CommunityPage() {
                     <div className="flex items-center gap-3">
                       <div className="font-black text-sm">{sym}</div>
                     </div>
-                    <ChevronRight className="h-4 w-4 text-slate-300 group-hover:text-blue-500 transition" />
+                    <ChevronRight className="h-4 w-4 text-theme-secondary group-hover:text-blue-500 transition" />
                   </div>
                 ))}
               </div>

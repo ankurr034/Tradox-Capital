@@ -150,7 +150,7 @@ export default function Financial() {
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
             Tax & Fixed Savings Planner
           </h1>
-          <p className="text-slate-400 text-sm font-medium">
+          <p className="text-theme-secondary text-sm font-medium">
             Optimize your long-term secure savings using India's tax-exempt instruments or high-yielding Fixed Deposits.
           </p>
         </header>
@@ -166,7 +166,7 @@ export default function Financial() {
                 setRate(7.1);
               }}
               className={`px-6 py-2 rounded-full text-sm font-bold transition duration-300 ${
-                toolType === 'PPF' ? 'bg-[#10B981] text-slate-950 shadow' : 'text-slate-400 hover:text-white'
+                toolType === 'PPF' ? 'bg-[#10B981] text-slate-950 shadow' : 'text-theme-secondary hover:text-white'
               }`}
             >
               Public Provident Fund (PPF)
@@ -179,7 +179,7 @@ export default function Financial() {
                 setRate(6.8);
               }}
               className={`px-6 py-2 rounded-full text-sm font-bold transition duration-300 ${
-                toolType === 'FD' ? 'bg-[#10B981] text-slate-950 shadow' : 'text-slate-400 hover:text-white'
+                toolType === 'FD' ? 'bg-[#10B981] text-slate-950 shadow' : 'text-theme-secondary hover:text-white'
               }`}
             >
               Fixed Deposit (FD)
@@ -195,7 +195,7 @@ export default function Financial() {
             
             {/* Input 1 */}
             <div className="space-y-2.5">
-              <div className="flex justify-between items-center text-sm font-bold text-slate-300">
+              <div className="flex justify-between items-center text-sm font-bold text-theme-secondary">
                 <span>{toolType === 'PPF' ? 'Annual Contribution' : 'Principal Deposit'}</span>
                 <span className="text-[#10B981] flex items-center gap-0.5">
                   <IndianRupee className="h-3.5 w-3.5" />
@@ -211,7 +211,7 @@ export default function Financial() {
                 onChange={(e) => setAmount(Number(e.target.value))}
                 className="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-[#10B981]"
               />
-              <div className="flex justify-between text-[10px] text-slate-500 font-bold">
+              <div className="flex justify-between text-[10px] text-theme-muted font-bold">
                 <span>{toolType === 'PPF' ? '₹500' : '₹10K'}</span>
                 <span>{toolType === 'PPF' ? '₹1.5L (Max 80C)' : '₹1Cr'}</span>
               </div>
@@ -219,7 +219,7 @@ export default function Financial() {
 
             {/* Input 2 */}
             <div className="space-y-2.5">
-              <div className="flex justify-between items-center text-sm font-bold text-slate-300">
+              <div className="flex justify-between items-center text-sm font-bold text-theme-secondary">
                 <span>Rate of Interest (Annual)</span>
                 <span className="text-[#10B981]">{rate}%</span>
               </div>
@@ -236,7 +236,7 @@ export default function Financial() {
 
             {/* Input 3 */}
             <div className="space-y-2.5">
-              <div className="flex justify-between items-center text-sm font-bold text-slate-300">
+              <div className="flex justify-between items-center text-sm font-bold text-theme-secondary">
                 <span>Time Duration</span>
                 <span className="text-[#10B981]">{years} Years</span>
               </div>
@@ -249,7 +249,7 @@ export default function Financial() {
                 onChange={(e) => setYears(Number(e.target.value))}
                 className="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-[#10B981]"
               />
-              <div className="flex justify-between text-[10px] text-slate-500 font-bold">
+              <div className="flex justify-between text-[10px] text-theme-muted font-bold">
                 <span>{toolType === 'PPF' ? '15 Yrs (Min)' : '1 Yr'}</span>
                 <span>{toolType === 'PPF' ? '30 Yrs' : '25 Yrs'}</span>
               </div>
@@ -257,21 +257,21 @@ export default function Financial() {
 
             {/* Value Highlights */}
             <div className="border-t border-slate-800 pt-6 space-y-4">
-              <div className="flex justify-between items-center text-xs text-slate-400 font-semibold">
+              <div className="flex justify-between items-center text-xs text-theme-secondary font-semibold">
                 <span>Total Invested Capital:</span>
                 <span className="text-white font-extrabold flex items-center">
                   <IndianRupee className="h-3 w-3" />
                   {totalInvested.toLocaleString('en-IN')}
                 </span>
               </div>
-              <div className="flex justify-between items-center text-xs text-slate-400 font-semibold">
+              <div className="flex justify-between items-center text-xs text-theme-secondary font-semibold">
                 <span>Est. Accumulative Interest:</span>
                 <span className="text-[#10B981] font-extrabold flex items-center">
                   <IndianRupee className="h-3 w-3" />
                   {totalInterest.toLocaleString('en-IN')}
                 </span>
               </div>
-              <div className="flex justify-between items-center text-sm text-slate-300 font-black border-t border-slate-850 pt-4">
+              <div className="flex justify-between items-center text-sm text-theme-secondary font-black border-t border-slate-850 pt-4">
                 <span>Maturity Portfolio Worth:</span>
                 <span className="text-[#10B981] text-lg font-black flex items-center">
                   <IndianRupee className="h-4.5 w-4.5" />
@@ -294,7 +294,7 @@ export default function Financial() {
                 <Scale className="h-10 w-10 text-emerald-400 flex-shrink-0" />
                 <div>
                   <h4 className="text-sm font-bold text-emerald-400">EEE Tax Exemption Benefit</h4>
-                  <p className="text-xs text-slate-400 leading-relaxed mt-0.5">
+                  <p className="text-xs text-theme-secondary leading-relaxed mt-0.5">
                     PPF carries the supreme **Exempt-Exempt-Exempt (EEE)** tax status in India. Your principal contribution, accumulated interest, and final maturity of <span className="text-emerald-400 font-bold">₹{maturityValue.toLocaleString('en-IN')}</span> are entirely 100% tax-free!
                   </p>
                 </div>
@@ -304,7 +304,7 @@ export default function Financial() {
                 <Sparkles className="h-10 w-10 text-blue-400 flex-shrink-0" />
                 <div>
                   <h4 className="text-sm font-bold text-blue-300">Quarterly Compounding Boost</h4>
-                  <p className="text-xs text-slate-400 leading-relaxed mt-0.5">
+                  <p className="text-xs text-theme-secondary leading-relaxed mt-0.5">
                     Fixed Deposits compound interest quarterly. Your compound interest yield increases your actual effective rate, yielding an extra secure earnings value of <span className="text-blue-300 font-bold">₹{totalInterest.toLocaleString('en-IN')}</span>!
                   </p>
                 </div>
@@ -320,7 +320,7 @@ export default function Financial() {
           </div>
           <div className="space-y-1.5 text-center md:text-left relative z-10">
             <h4 className="text-xl font-extrabold text-white">Ready to execute this Secure Tax Strategy?</h4>
-            <p className="text-sm text-slate-400 max-w-xl">
+            <p className="text-sm text-theme-secondary max-w-xl">
               Lock in secure quarterly yields. Connect with our dedicated relationship manager at your nearest offline branch to complete high-yielding **PPF or Fixed Deposit creations** in minutes.
             </p>
           </div>

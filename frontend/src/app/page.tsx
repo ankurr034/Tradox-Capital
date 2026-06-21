@@ -448,7 +448,7 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <div className="absolute bottom-2 left-0 right-0 px-4 flex justify-between text-[10px] text-slate-500 font-extrabold uppercase tracking-wider">
+                    <div className="absolute bottom-2 left-0 right-0 px-4 flex justify-between text-[10px] text-theme-muted font-extrabold uppercase tracking-wider">
                       <span>Q1 25</span>
                       <span>Q3 25</span>
                       <span>Q1 26</span>
@@ -509,7 +509,7 @@ export default function Home() {
             <div className="flex-1 flex overflow-x-auto gap-8 no-scrollbar items-center whitespace-nowrap py-1 scroll-smooth">
               {tickerData.map((ticker, index) => (
                 <div key={index} className="inline-flex items-center gap-2.5 bg-theme-elevated border border-theme-secondary px-3.5 py-1.5 rounded-lg shadow-sm">
-                  <span className="text-xs font-bold text-slate-300">{ticker.name}</span>
+                  <span className="text-xs font-bold text-theme-secondary">{ticker.name}</span>
                   <span className="text-sm font-extrabold text-theme-primary">
                     {((ticker as any).currency as string) || '₹'}{ticker.price}
                   </span>
@@ -583,7 +583,7 @@ export default function Home() {
             className={`px-6 py-3 rounded-full text-sm font-extrabold transition-all duration-300 ${
               activeCapTab === 'quant'
                 ? 'bg-violet-600 text-theme-primary shadow-lg shadow-violet-600/25'
-                : 'text-theme-secondary hover:text-slate-200 bg-theme-card border border-theme-secondary'
+                : 'text-theme-secondary hover:text-theme-primary bg-theme-card border border-theme-secondary'
             }`}
           >
             <div className="flex items-center gap-2">
@@ -597,7 +597,7 @@ export default function Home() {
             className={`px-6 py-3 rounded-full text-sm font-extrabold transition-all duration-300 ${
               activeCapTab === 'mutual'
                 ? 'bg-emerald-600 text-slate-950 shadow-lg shadow-emerald-500/25'
-                : 'text-theme-secondary hover:text-slate-200 bg-theme-card border border-theme-secondary'
+                : 'text-theme-secondary hover:text-theme-primary bg-theme-card border border-theme-secondary'
             }`}
           >
             <div className="flex items-center gap-2">
@@ -611,7 +611,7 @@ export default function Home() {
             className={`px-6 py-3 rounded-full text-sm font-extrabold transition-all duration-300 ${
               activeCapTab === 'alts'
                 ? 'bg-blue-600 text-theme-primary shadow-lg shadow-blue-600/25'
-                : 'text-theme-secondary hover:text-slate-200 bg-theme-card border border-theme-secondary'
+                : 'text-theme-secondary hover:text-theme-primary bg-theme-card border border-theme-secondary'
             }`}
           >
             <div className="flex items-center gap-2">
@@ -625,7 +625,7 @@ export default function Home() {
             className={`px-6 py-3 rounded-full text-sm font-extrabold transition-all duration-300 ${
               activeCapTab === 'retirement'
                 ? 'bg-[#10B981] text-slate-950 shadow-lg shadow-emerald-500/20'
-                : 'text-theme-secondary hover:text-slate-200 bg-theme-card border border-theme-secondary'
+                : 'text-theme-secondary hover:text-theme-primary bg-theme-card border border-theme-secondary'
             }`}
           >
             <div className="flex items-center gap-2">
@@ -649,7 +649,7 @@ export default function Home() {
                 <p className="text-theme-secondary text-sm sm:text-base leading-relaxed font-medium">
                   Harnessing neural network embeddings, we analyze over 4,000 data points daily—including technical momentum indices, earnings trajectories, and macro developments—to compute short-term predictive trends for domestic equities.
                 </p>
-                <ul className="space-y-3 font-semibold text-sm text-slate-300">
+                <ul className="space-y-3 font-semibold text-sm text-theme-secondary">
                   <li className="flex items-center gap-3">
                     <Check className="h-5 w-5 text-violet-400" />
                     <span>Dynamic weekly portfolio re-optimization</span>
@@ -722,7 +722,7 @@ export default function Home() {
                 <p className="text-theme-secondary text-sm sm:text-base leading-relaxed font-medium">
                   Avoid choice overload. We monitor more than 400 Indian Mutual Funds, hand-selecting premier performers across Equity, Debt, and Commodities, and blending them into risk-adjusted portfolios that rebalance as market conditions shift.
                 </p>
-                <ul className="space-y-3 font-semibold text-sm text-slate-300">
+                <ul className="space-y-3 font-semibold text-sm text-theme-secondary">
                   <li className="flex items-center gap-3">
                     <Check className="h-5 w-5 text-emerald-400" />
                     <span>Real-time NAV tracking and automatic ledger compilation</span>
@@ -787,7 +787,7 @@ export default function Home() {
                 <p className="text-theme-secondary text-sm sm:text-base leading-relaxed font-medium">
                   Democratizing access to high-yield institutional credit, fractional high-end commercial real estate (A-grade warehouses, IT parks), and private distressed debt. Previously reserved for multi-family offices, now accessible to qualified investors.
                 </p>
-                <ul className="space-y-3 font-semibold text-sm text-slate-300">
+                <ul className="space-y-3 font-semibold text-sm text-theme-secondary">
                   <li className="flex items-center gap-3">
                     <Check className="h-5 w-5 text-blue-400" />
                     <span>Target yields of 12.5% to 15.5% fixed IRR</span>
@@ -845,7 +845,7 @@ export default function Home() {
                 <p className="text-theme-secondary text-sm sm:text-base leading-relaxed font-medium">
                   Accumulating wealth is only half the battle. Our Retirement planning module focuses on complex decumulation structures, ensuring high tax-efficiency, automated monthly withdrawals (SWPs), and reliable cashflow indexing that grows alongside inflation.
                 </p>
-                <ul className="space-y-3 font-semibold text-sm text-slate-300">
+                <ul className="space-y-3 font-semibold text-sm text-theme-secondary">
                   <li className="flex items-center gap-3">
                     <Check className="h-5 w-5 text-emerald-500" />
                     <span>SWP (Systematic Withdrawal Plan) optimization models</span>
@@ -1141,7 +1141,7 @@ export default function Home() {
 
               <div className="pt-6 border-t border-theme-secondary mt-6 space-y-2">
                 <span className="text-[10px] text-theme-muted font-extrabold block">{insight.date}</span>
-                <span className="text-[11px] text-slate-300 font-bold block">{insight.author}</span>
+                <span className="text-[11px] text-theme-secondary font-bold block">{insight.author}</span>
               </div>
             </div>
           ))}
@@ -1682,7 +1682,12 @@ export default function Home() {
           {/* Legal Disclaimers & Disclosures (BlackRock Style) */}
           <div className="space-y-4 text-[10px] text-theme-muted leading-relaxed font-semibold">
             <div className="flex items-center gap-1.5 mb-2">
-              <span className="text-xs font-extrabold text-theme-primary tracking-tight">Tradox </span>
+              <svg width="24" height="24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">
+                <rect width="100" height="100" rx="20" fill="#042C53" />
+                <rect x="30" y="20" width="40" height="10" rx="2" fill="white" />
+                <path d="M50 35 L75 65 L60 65 L60 85 L40 85 L40 65 L25 65 Z" fill="white" />
+              </svg>
+              <span className="text-xs font-extrabold text-theme-primary tracking-tight ml-1">Tradox </span>
               <span className="text-xs font-extrabold text-emerald-400 tracking-tight flex items-center">
                 Capital
                 <TrendingUp className="h-3.5 w-3.5 text-emerald-400 ml-0.5" />

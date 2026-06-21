@@ -44,7 +44,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </div>
           <div>
             <h1 className="font-black text-lg leading-tight">Admin</h1>
-            <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Portal</p>
+            <p className="text-[10px] font-bold text-theme-muted uppercase tracking-widest">Portal</p>
           </div>
         </div>
 
@@ -60,7 +60,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 className={`flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition-all ${
                   isActive 
                     ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20' 
-                    : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
+                    : 'text-theme-muted dark:text-theme-secondary hover:bg-slate-100 dark:hover:bg-slate-800'
                 }`}
               >
                 <Icon className="h-5 w-5" />
@@ -79,7 +79,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               onClick={toggleTheme}
               className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition"
             >
-              {theme === 'dark' ? <Sun className="h-4 w-4 text-amber-500" /> : <Moon className="h-4 w-4 text-slate-500" />}
+              {theme === 'dark' ? <Sun className="h-4 w-4 text-amber-500" /> : <Moon className="h-4 w-4 text-theme-muted" />}
             </button>
           </div>
           <button 

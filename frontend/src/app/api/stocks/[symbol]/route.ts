@@ -3,7 +3,7 @@ import YahooFinance from 'yahoo-finance2';
 
 export const dynamic = 'force-dynamic';
 
-const yahooFinance = new YahooFinance();
+const yahooFinance = new (YahooFinance as any)();
 
 // Unified stock endpoint for the AI comparison dashboard (migrated from the Express backend).
 // Returns recent price history + a lightweight AI-style prediction.

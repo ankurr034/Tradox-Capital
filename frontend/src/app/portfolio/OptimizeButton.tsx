@@ -71,13 +71,13 @@ export default function OptimizeButton({ modelName }: { modelName?: string }) {
                 </div>
                 <div>
                   <h2 className="text-xl font-black">AI Portfolio Optimization</h2>
-                  <p className="text-sm font-semibold text-slate-500">Aligning with "{modelName}" Model</p>
+                  <p className="text-sm font-semibold text-theme-muted">Aligning with "{modelName}" Model</p>
                 </div>
               </div>
               <button 
                 onClick={() => setIsOpen(false)}
                 disabled={executing}
-                className="p-2 text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition"
+                className="p-2 text-theme-secondary hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -86,7 +86,7 @@ export default function OptimizeButton({ modelName }: { modelName?: string }) {
             {loading ? (
               <div className="flex-1 flex flex-col items-center justify-center py-12">
                 <Loader2 className="h-10 w-10 animate-spin text-indigo-500 mb-4" />
-                <p className="font-bold text-slate-500">Analyzing allocations & calculating rebalance trades...</p>
+                <p className="font-bold text-theme-muted">Analyzing allocations & calculating rebalance trades...</p>
               </div>
             ) : success ? (
               <div className="flex-1 flex flex-col items-center justify-center py-12">
@@ -94,7 +94,7 @@ export default function OptimizeButton({ modelName }: { modelName?: string }) {
                   <CheckCircle className="h-8 w-8" />
                 </div>
                 <h3 className="text-2xl font-black mb-2">Optimization Complete</h3>
-                <p className="font-bold text-slate-500 text-center mb-6">
+                <p className="font-bold text-theme-muted text-center mb-6">
                   Trades have been queued to realign your portfolio with the {modelName} target allocations.
                 </p>
                 <button 
@@ -108,11 +108,11 @@ export default function OptimizeButton({ modelName }: { modelName?: string }) {
               <div className="flex-1 py-12 text-center">
                 <CheckCircle className="h-12 w-12 text-emerald-500 mx-auto mb-4" />
                 <h3 className="text-xl font-black">Perfectly Aligned!</h3>
-                <p className="font-bold text-slate-500 mt-2">Your portfolio matches the {modelName} targets. No rebalancing needed.</p>
+                <p className="font-bold text-theme-muted mt-2">Your portfolio matches the {modelName} targets. No rebalancing needed.</p>
               </div>
             ) : (
               <div className="flex-1 overflow-y-auto min-h-[300px] pr-2">
-                <p className="font-bold text-slate-500 mb-4">Recommended Trades ({recommendations.length}):</p>
+                <p className="font-bold text-theme-muted mb-4">Recommended Trades ({recommendations.length}):</p>
                 
                 <div className="space-y-3 mb-6">
                   {recommendations.map((rec, i) => (
@@ -126,11 +126,11 @@ export default function OptimizeButton({ modelName }: { modelName?: string }) {
                           </span>
                           <span className="font-black text-sm">{rec.symbol}</span>
                         </div>
-                        <p className="text-xs font-bold text-slate-500">{rec.reason}</p>
+                        <p className="text-xs font-bold text-theme-muted">{rec.reason}</p>
                       </div>
                       <div className="text-right">
                         <div className="font-black text-sm">{rec.quantity.toFixed(2)} Qty</div>
-                        <div className="text-xs font-bold text-slate-500">Est. ₹{rec.estimatedPrice.toFixed(2)}</div>
+                        <div className="text-xs font-bold text-theme-muted">Est. ₹{rec.estimatedPrice.toFixed(2)}</div>
                       </div>
                     </div>
                   ))}

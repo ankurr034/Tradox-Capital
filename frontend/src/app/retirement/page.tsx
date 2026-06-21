@@ -27,10 +27,10 @@ export default function Retirement() {
         {/* Step 1: Select Your Funds */}
         <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-8 shadow-sm">
           <h2 className="text-2xl font-black text-slate-900 dark:text-white mb-2">Step 1: Select Your Funds</h2>
-          <p className="text-slate-500 dark:text-slate-400 font-medium mb-6">Search and add mutual funds to build your retirement portfolio. You can add 1-5 funds.</p>
+          <p className="text-theme-muted dark:text-theme-secondary font-medium mb-6">Search and add mutual funds to build your retirement portfolio. You can add 1-5 funds.</p>
           
           <div className="relative max-w-full">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-theme-secondary" />
             <input 
               type="text" 
               placeholder="Search mutual funds by name..." 
@@ -45,7 +45,7 @@ export default function Retirement() {
             <Target className="h-10 w-10 text-emerald-600 dark:text-emerald-500" />
           </div>
           <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3">Select Funds to Get Started</h3>
-          <p className="text-slate-500 dark:text-slate-400 font-medium max-w-md">
+          <p className="text-theme-muted dark:text-theme-secondary font-medium max-w-md">
             Add at least 1 fund to your portfolio above to begin planning your retirement strategy.
           </p>
         </div>

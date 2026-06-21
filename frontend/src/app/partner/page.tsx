@@ -71,7 +71,7 @@ export default function Partner() {
               </span>
             </h1>
 
-            <p className="text-slate-400 font-medium text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            <p className="text-theme-secondary font-medium text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
               Ready to execute your SIP, SWP, or AI Stock options? Open a secure Demat account or schedule a **1-on-1 offline wealth consultation** with our licensed relationship advisors at our nearest local branch office.
             </p>
 
@@ -79,15 +79,15 @@ export default function Partner() {
             <div className="grid grid-cols-3 gap-4 pt-6 text-center lg:text-left">
               <div className="border-l-2 border-[#10B981] pl-4">
                 <span className="text-xl sm:text-2xl font-black text-white block">₹12,400+ Cr</span>
-                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Assets Managed</span>
+                <span className="text-[10px] text-theme-muted font-bold uppercase tracking-wider">Assets Managed</span>
               </div>
               <div className="border-l-2 border-[#10B981] pl-4">
                 <span className="text-xl sm:text-2xl font-black text-white block">42+ Branches</span>
-                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Pan IndiaPresence</span>
+                <span className="text-[10px] text-theme-muted font-bold uppercase tracking-wider">Pan IndiaPresence</span>
               </div>
               <div className="border-l-2 border-[#10B981] pl-4">
                 <span className="text-xl sm:text-2xl font-black text-white block">12 Hours</span>
-                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Advisor Dispatch</span>
+                <span className="text-[10px] text-theme-muted font-bold uppercase tracking-wider">Advisor Dispatch</span>
               </div>
             </div>
           </div>
@@ -102,25 +102,25 @@ export default function Partner() {
               <div className="text-center py-10 space-y-6">
                 <CheckCircle className="h-16 w-16 text-[#10B981] mx-auto animate-pulse" />
                 <h3 className="text-2xl font-extrabold text-white">Consultation Initiated!</h3>
-                <p className="text-slate-400 text-sm leading-relaxed max-w-sm mx-auto">
+                <p className="text-theme-secondary text-sm leading-relaxed max-w-sm mx-auto">
                   Thank you, <span className="text-white font-bold">{name}</span>. Your details have been securely routed to our offline advisors.
                 </p>
-                <div className="bg-slate-950/60 border border-slate-850 p-4 rounded-xl text-left text-xs text-slate-300 font-bold space-y-1.5">
-                  <span className="text-slate-500 block uppercase text-[10px] tracking-wider">Assigned Advisory:</span>
+                <div className="bg-slate-950/60 border border-slate-850 p-4 rounded-xl text-left text-xs text-theme-secondary font-bold space-y-1.5">
+                  <span className="text-theme-muted block uppercase text-[10px] tracking-wider">Assigned Advisory:</span>
                   <p className="text-[#10B981] leading-relaxed">{assignedAdvisor}</p>
-                  <p className="text-slate-400 font-medium">An advisor will call you shortly at <span className="text-white">{phone}</span> to coordinate demat creation.</p>
+                  <p className="text-theme-secondary font-medium">An advisor will call you shortly at <span className="text-white">{phone}</span> to coordinate demat creation.</p>
                 </div>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5 relative z-10">
                 <div className="text-center sm:text-left">
                   <h3 className="font-extrabold text-xl text-white">Open Account / Book Advisory</h3>
-                  <p className="text-xs text-slate-400 mt-1">Get free advisory, zero brokerage on funds, & personal advisory sync.</p>
+                  <p className="text-xs text-theme-secondary mt-1">Get free advisory, zero brokerage on funds, & personal advisory sync.</p>
                 </div>
 
                 {/* Input 1 */}
                 <div className="space-y-1.5">
-                  <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">Full Name</label>
+                  <label className="text-[10px] font-bold text-theme-muted uppercase tracking-wider block">Full Name</label>
                   <input
                     type="text"
                     required
@@ -133,7 +133,7 @@ export default function Partner() {
 
                 {/* Input 2 */}
                 <div className="space-y-1.5">
-                  <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">Phone Number</label>
+                  <label className="text-[10px] font-bold text-theme-muted uppercase tracking-wider block">Phone Number</label>
                   <input
                     type="tel"
                     required
@@ -146,7 +146,7 @@ export default function Partner() {
 
                 {/* Input 3 */}
                 <div className="space-y-1.5">
-                  <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">Target City (Offline Branch)</label>
+                  <label className="text-[10px] font-bold text-theme-muted uppercase tracking-wider block">Target City (Offline Branch)</label>
                   <select
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
@@ -161,7 +161,7 @@ export default function Partner() {
 
                 {/* Input 4 */}
                 <div className="space-y-1.5">
-                  <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">Desired Advisory Segment</label>
+                  <label className="text-[10px] font-bold text-theme-muted uppercase tracking-wider block">Desired Advisory Segment</label>
                   <select
                     value={segment}
                     onChange={(e) => setSegment(e.target.value)}
@@ -193,7 +193,7 @@ export default function Partner() {
             <Building className="h-6 w-6 text-[#10B981]" />
             <div>
               <h3 className="font-extrabold text-xl text-white">Our Local pan-India Branches</h3>
-              <p className="text-xs text-slate-400">Visit us directly at our branch locations for customized, physical advisor meetings.</p>
+              <p className="text-xs text-theme-secondary">Visit us directly at our branch locations for customized, physical advisor meetings.</p>
             </div>
           </div>
 
@@ -205,9 +205,9 @@ export default function Partner() {
                     <MapPin className="h-4.5 w-4.5" />
                     <span className="text-sm font-bold text-white">{b.city} Branch</span>
                   </div>
-                  <p className="text-xs text-slate-400 leading-relaxed font-medium">{b.location}</p>
+                  <p className="text-xs text-theme-secondary leading-relaxed font-medium">{b.location}</p>
                 </div>
-                <div className="flex items-center gap-1.5 text-xs text-slate-300 font-bold border-t border-slate-850/50 pt-3.5 mt-4">
+                <div className="flex items-center gap-1.5 text-xs text-theme-secondary font-bold border-t border-slate-850/50 pt-3.5 mt-4">
                   <PhoneCall className="h-3.5 w-3.5 text-emerald-400" />
                   <span>{b.phone}</span>
                 </div>

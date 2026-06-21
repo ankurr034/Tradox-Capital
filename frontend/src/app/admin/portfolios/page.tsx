@@ -37,7 +37,7 @@ export default async function AdminPortfoliosPage() {
             <div className="p-3 bg-blue-50 dark:bg-blue-500/10 rounded-xl text-blue-500">
               <FolderKanban className="h-6 w-6" />
             </div>
-            <h3 className="font-bold text-slate-500 dark:text-slate-400">Total Portfolios</h3>
+            <h3 className="font-bold text-theme-muted dark:text-theme-secondary">Total Portfolios</h3>
           </div>
           <div className="text-4xl font-black">{portfoliosWithCalculatedValues.length}</div>
         </div>
@@ -47,7 +47,7 @@ export default async function AdminPortfoliosPage() {
             <div className="p-3 bg-emerald-50 dark:bg-emerald-500/10 rounded-xl text-emerald-500">
               <TrendingUp className="h-6 w-6" />
             </div>
-            <h3 className="font-bold text-slate-500 dark:text-slate-400">Total AUM Managed</h3>
+            <h3 className="font-bold text-theme-muted dark:text-theme-secondary">Total AUM Managed</h3>
           </div>
           <div className="text-4xl font-black">
             ₹{portfoliosWithCalculatedValues.reduce((acc, p) => acc + p.totalValue, 0).toLocaleString('en-IN', { maximumFractionDigits: 0 })}
@@ -60,18 +60,18 @@ export default async function AdminPortfoliosPage() {
           <table className="w-full text-left text-sm whitespace-nowrap">
             <thead className="bg-slate-50 dark:bg-slate-800/50">
               <tr>
-                <th className="px-6 py-4 font-black text-xs uppercase tracking-wider text-slate-500">Client</th>
-                <th className="px-6 py-4 font-black text-xs uppercase tracking-wider text-slate-500">Risk Profile</th>
-                <th className="px-6 py-4 font-black text-xs uppercase tracking-wider text-slate-500">Holdings</th>
-                <th className="px-6 py-4 font-black text-xs uppercase tracking-wider text-slate-500 text-right">Available Funds</th>
-                <th className="px-6 py-4 font-black text-xs uppercase tracking-wider text-slate-500 text-right">Total Value</th>
-                <th className="px-6 py-4 font-black text-xs uppercase tracking-wider text-slate-500 text-center">Actions</th>
+                <th className="px-6 py-4 font-black text-xs uppercase tracking-wider text-theme-muted">Client</th>
+                <th className="px-6 py-4 font-black text-xs uppercase tracking-wider text-theme-muted">Risk Profile</th>
+                <th className="px-6 py-4 font-black text-xs uppercase tracking-wider text-theme-muted">Holdings</th>
+                <th className="px-6 py-4 font-black text-xs uppercase tracking-wider text-theme-muted text-right">Available Funds</th>
+                <th className="px-6 py-4 font-black text-xs uppercase tracking-wider text-theme-muted text-right">Total Value</th>
+                <th className="px-6 py-4 font-black text-xs uppercase tracking-wider text-theme-muted text-center">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-200 dark:divide-slate-800">
               {portfoliosWithCalculatedValues.length === 0 ? (
                 <tr>
-                  <td colSpan={6} className="px-6 py-12 text-center text-slate-500 font-bold">
+                  <td colSpan={6} className="px-6 py-12 text-center text-theme-muted font-bold">
                     No portfolios found.
                   </td>
                 </tr>
@@ -79,7 +79,7 @@ export default async function AdminPortfoliosPage() {
                 <tr key={portfolio.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
                   <td className="px-6 py-4">
                     <div className="font-bold text-slate-900 dark:text-white">{portfolio.clientProfile.user.name}</div>
-                    <div className="text-xs text-slate-500">{portfolio.clientProfile.user.email}</div>
+                    <div className="text-xs text-theme-muted">{portfolio.clientProfile.user.email}</div>
                   </td>
                   <td className="px-6 py-4">
                     <span className="px-2 py-1 rounded text-xs font-black bg-blue-100 text-blue-700 dark:bg-blue-500/10 dark:text-blue-400">

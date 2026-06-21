@@ -71,7 +71,7 @@ export default function BrokerSettingsPage() {
         
         <div className="mb-8">
           <h1 className="text-3xl font-black mb-2">Broker Connection</h1>
-          <p className="font-semibold text-slate-500">Link your Demat account to enable direct trade execution from The Laal Street.</p>
+          <p className="font-semibold text-theme-muted">Link your Demat account to enable direct trade execution from The Laal Street.</p>
         </div>
 
         {loading ? (
@@ -88,7 +88,7 @@ export default function BrokerSettingsPage() {
                     <h2 className="text-xl font-black text-emerald-600 dark:text-emerald-500">Connected to {profile.brokerName}</h2>
                     <span className="px-2 py-0.5 bg-emerald-500 text-white text-[10px] font-black uppercase tracking-wider rounded">Active</span>
                   </div>
-                  <p className="text-sm font-bold text-slate-500">Account ID: {profile.brokerAccountId}</p>
+                  <p className="text-sm font-bold text-theme-muted">Account ID: {profile.brokerAccountId}</p>
                 </div>
               </div>
               <button 
@@ -109,7 +109,7 @@ export default function BrokerSettingsPage() {
               </h2>
               <form onSubmit={handleConnect} className="space-y-4">
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Select Broker</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-theme-muted mb-1.5">Select Broker</label>
                   <select 
                     value={brokerName}
                     onChange={(e) => setBrokerName(e.target.value)}
@@ -123,7 +123,7 @@ export default function BrokerSettingsPage() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Client / Account ID</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-theme-muted mb-1.5">Client / Account ID</label>
                   <input 
                     type="text" 
                     required

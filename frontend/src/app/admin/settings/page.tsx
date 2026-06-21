@@ -102,7 +102,7 @@ export default function AdminSettingsPage() {
                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition-all ${
                   isActive 
                     ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20' 
-                    : 'bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-blue-500/50'
+                    : 'bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-theme-secondary hover:border-blue-500/50'
                 }`}
               >
                 <Icon className="h-5 w-5" />
@@ -124,7 +124,7 @@ export default function AdminSettingsPage() {
               {activeTab === 'general' && (
                 <>
                   <div>
-                    <label className="block text-sm font-bold text-slate-500 dark:text-slate-400 mb-2">Platform Name</label>
+                    <label className="block text-sm font-bold text-theme-muted dark:text-theme-secondary mb-2">Platform Name</label>
                     <input 
                       type="text" 
                       value={formData.PLATFORM_NAME}
@@ -133,7 +133,7 @@ export default function AdminSettingsPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-bold text-slate-500 dark:text-slate-400 mb-2">Support Email</label>
+                    <label className="block text-sm font-bold text-theme-muted dark:text-theme-secondary mb-2">Support Email</label>
                     <input 
                       type="email" 
                       value={formData.SUPPORT_EMAIL}
@@ -142,7 +142,7 @@ export default function AdminSettingsPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-bold text-slate-500 dark:text-slate-400 mb-2">Default Currency</label>
+                    <label className="block text-sm font-bold text-theme-muted dark:text-theme-secondary mb-2">Default Currency</label>
                     <select 
                       value={formData.DEFAULT_CURRENCY}
                       onChange={(e) => setFormData({...formData, DEFAULT_CURRENCY: e.target.value})}
@@ -159,7 +159,7 @@ export default function AdminSettingsPage() {
               {activeTab === 'security' && (
                 <>
                   <div>
-                    <label className="block text-sm font-bold text-slate-500 dark:text-slate-400 mb-2">Require Multi-Factor Authentication</label>
+                    <label className="block text-sm font-bold text-theme-muted dark:text-theme-secondary mb-2">Require Multi-Factor Authentication</label>
                     <select 
                       value={formData.MFA_ENABLED}
                       onChange={(e) => setFormData({...formData, MFA_ENABLED: e.target.value})}
@@ -170,7 +170,7 @@ export default function AdminSettingsPage() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-bold text-slate-500 dark:text-slate-400 mb-2">Session Timeout (Minutes)</label>
+                    <label className="block text-sm font-bold text-theme-muted dark:text-theme-secondary mb-2">Session Timeout (Minutes)</label>
                     <input 
                       type="number" 
                       value={formData.SESSION_TIMEOUT}
@@ -184,7 +184,7 @@ export default function AdminSettingsPage() {
               {activeTab === 'database' && (
                 <>
                   <div>
-                    <label className="block text-sm font-bold text-slate-500 dark:text-slate-400 mb-2">Automated Backups</label>
+                    <label className="block text-sm font-bold text-theme-muted dark:text-theme-secondary mb-2">Automated Backups</label>
                     <select 
                       value={formData.AUTO_BACKUP}
                       onChange={(e) => setFormData({...formData, AUTO_BACKUP: e.target.value})}
@@ -195,7 +195,7 @@ export default function AdminSettingsPage() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-bold text-slate-500 dark:text-slate-400 mb-2">Backup Frequency</label>
+                    <label className="block text-sm font-bold text-theme-muted dark:text-theme-secondary mb-2">Backup Frequency</label>
                     <select 
                       value={formData.BACKUP_FREQUENCY}
                       onChange={(e) => setFormData({...formData, BACKUP_FREQUENCY: e.target.value})}
@@ -212,7 +212,7 @@ export default function AdminSettingsPage() {
               {activeTab === 'notifications' && (
                 <>
                   <div>
-                    <label className="block text-sm font-bold text-slate-500 dark:text-slate-400 mb-2">System Email Notifications</label>
+                    <label className="block text-sm font-bold text-theme-muted dark:text-theme-secondary mb-2">System Email Notifications</label>
                     <select 
                       value={formData.EMAIL_NOTIFICATIONS}
                       onChange={(e) => setFormData({...formData, EMAIL_NOTIFICATIONS: e.target.value})}
@@ -223,7 +223,7 @@ export default function AdminSettingsPage() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-bold text-slate-500 dark:text-slate-400 mb-2">System SMS Notifications</label>
+                    <label className="block text-sm font-bold text-theme-muted dark:text-theme-secondary mb-2">System SMS Notifications</label>
                     <select 
                       value={formData.SMS_NOTIFICATIONS}
                       onChange={(e) => setFormData({...formData, SMS_NOTIFICATIONS: e.target.value})}
@@ -239,7 +239,7 @@ export default function AdminSettingsPage() {
               {activeTab === 'api_keys' && (
                 <>
                   <div>
-                    <label className="block text-sm font-bold text-slate-500 dark:text-slate-400 mb-2">Stripe Payment Key</label>
+                    <label className="block text-sm font-bold text-theme-muted dark:text-theme-secondary mb-2">Stripe Payment Key</label>
                     <input 
                       type="password" 
                       value={formData.STRIPE_KEY}
@@ -249,7 +249,7 @@ export default function AdminSettingsPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-bold text-slate-500 dark:text-slate-400 mb-2">Market Data API Key (AlphaVantage/Yahoo)</label>
+                    <label className="block text-sm font-bold text-theme-muted dark:text-theme-secondary mb-2">Market Data API Key (AlphaVantage/Yahoo)</label>
                     <input 
                       type="password" 
                       value={formData.MARKET_DATA_KEY}
@@ -264,7 +264,7 @@ export default function AdminSettingsPage() {
               <div className="pt-6 border-t border-slate-200 dark:border-slate-800 flex justify-end gap-3">
                 <button 
                   onClick={fetchSettings}
-                  className="px-6 py-3 rounded-xl font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+                  className="px-6 py-3 rounded-xl font-bold text-theme-muted dark:text-theme-secondary hover:bg-slate-100 dark:hover:bg-slate-800 transition"
                 >
                   Cancel
                 </button>

@@ -57,30 +57,30 @@ export default function AddClientModal() {
             <div className="flex items-center justify-between p-5 border-b border-slate-200 dark:border-slate-800">
               <h2 className="text-lg font-black text-slate-900 dark:text-white">Add New Client</h2>
               <button onClick={() => setIsOpen(false)} className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition">
-                <X className="h-5 w-5 text-slate-500" />
+                <X className="h-5 w-5 text-theme-muted" />
               </button>
             </div>
 
             <form onSubmit={handleSubmit} className="p-5 space-y-4">
               <div>
-                <label className="block text-xs font-bold text-slate-500 uppercase mb-1">Full Name *</label>
+                <label className="block text-xs font-bold text-theme-muted uppercase mb-1">Full Name *</label>
                 <input required type="text" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full p-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 outline-none focus:border-blue-500" />
               </div>
               <div>
-                <label className="block text-xs font-bold text-slate-500 uppercase mb-1">Email *</label>
+                <label className="block text-xs font-bold text-theme-muted uppercase mb-1">Email *</label>
                 <input required type="email" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} className="w-full p-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 outline-none focus:border-blue-500" />
               </div>
               <div>
-                <label className="block text-xs font-bold text-slate-500 uppercase mb-1">Temporary Password *</label>
+                <label className="block text-xs font-bold text-theme-muted uppercase mb-1">Temporary Password *</label>
                 <input required type="text" value={formData.password} onChange={e => setFormData({...formData, password: e.target.value})} className="w-full p-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 outline-none focus:border-blue-500" />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-500 uppercase mb-1">Phone</label>
+                  <label className="block text-xs font-bold text-theme-muted uppercase mb-1">Phone</label>
                   <input type="text" value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} className="w-full p-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 outline-none focus:border-blue-500" />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-slate-500 uppercase mb-1">PAN</label>
+                  <label className="block text-xs font-bold text-theme-muted uppercase mb-1">PAN</label>
                   <input type="text" value={formData.pan} onChange={e => setFormData({...formData, pan: e.target.value})} className="w-full p-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 outline-none focus:border-blue-500 uppercase" />
                 </div>
               </div>

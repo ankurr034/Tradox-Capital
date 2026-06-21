@@ -56,10 +56,10 @@ export default async function PortfolioPage() {
 
   if (!clientProfile || !clientProfile.portfolio) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#09090b] p-6 text-center text-slate-300 font-mono">
+      <div className="min-h-screen flex items-center justify-center bg-[#09090b] p-6 text-center text-theme-secondary font-mono">
         <div>
           <h1 className="text-xl font-bold mb-2">ERR: PORTFOLIO_NOT_FOUND</h1>
-          <p className="text-xs text-slate-500 mb-6">Account provisioning incomplete.</p>
+          <p className="text-xs text-theme-muted mb-6">Account provisioning incomplete.</p>
           <Link href="/" className="text-[#00E676] hover:underline">[ RETURN_HOME ]</Link>
         </div>
       </div>
