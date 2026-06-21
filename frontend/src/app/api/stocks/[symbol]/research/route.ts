@@ -15,14 +15,21 @@ export async function GET(req: Request, { params }: { params: Promise<{ symbol: 
     else if (yfSymbol.startsWith('BSE:')) yfSymbol = yfSymbol.replace('BSE:', '') + '.BO';
     else if (!yfSymbol.includes('.')) yfSymbol = yfSymbol + '.NS'; // default to NSE
 
-    // Fetch data in parallel
-    const [quote, summary, searchResult] = await Promise.all([
+    const baseSymbol = yfSymbol.split('.')[0];
+
+    // Fetch quote and summary in parallel
+    const [quote, summary] = await Promise.all([
       yahooFinance.quote(yfSymbol).catch(() => null),
       yahooFinance.quoteSummary(yfSymbol, {
         modules: ['financialData', 'defaultKeyStatistics', 'assetProfile', 'incomeStatementHistory', 'balanceSheetHistory']
-      }).catch(() => null),
-      yahooFinance.search(yfSymbol, { newsCount: 10 }).catch(() => null)
+      }).catch(() => null)
     ]);
+
+    let searchResult = null;
+    if (quote) {
+      const searchTerm = quote.shortName || quote.longName || baseSymbol;
+      searchResult = await yahooFinance.search(searchTerm, { newsCount: 30 }).catch(() => null);
+    }
 
     if (!quote || !summary) {
       return NextResponse.json({ error: "Failed to fetch market data from Yahoo Finance" }, { status: 404 });
@@ -57,14 +64,16 @@ export async function GET(req: Request, { params }: { params: Promise<{ symbol: 
     };
 
     // Format news
-    const news = (searchResult?.news || []).map((n: any) => ({
-      title: n.title,
-      summary: n.publisher,
-      url: n.link,
-      source: n.publisher,
-      publishedAt: n.providerPublishTime ? new Date(n.providerPublishTime * 1000).toISOString() : new Date().toISOString(),
-      impact: 'NEUTRAL' // Default for now
-    }));
+    const news = (searchResult?.news || [])
+      .slice(0, 15)
+      .map((n: any) => ({
+        title: n.title,
+        summary: n.publisher,
+        url: n.link,
+        source: n.publisher,
+        publishedAt: n.providerPublishTime ? new Date(n.providerPublishTime * 1000).toISOString() : new Date().toISOString(),
+        impact: 'NEUTRAL' // Default for now
+      }));
 
     // Generate AI Analysis via Gemini
     let aiAnalysis = null;

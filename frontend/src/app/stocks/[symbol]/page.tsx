@@ -419,8 +419,8 @@ export default function StockDetailsPage() {
                   {researchData?.news && researchData.news.length > 0 ? (
                     <div className="space-y-4">
                       {researchData.news.map((item: any, idx: number) => (
-                        <div key={idx} className="block p-4 bg-slate-800/50 rounded-lg hover:bg-slate-700 transition border border-slate-700 cursor-default">
-                          <h4 className="font-bold text-blue-400 mb-2">{item.title}</h4>
+                        <a key={idx} href={item.url} target="_blank" rel="noopener noreferrer" className="block p-4 bg-slate-800/50 rounded-lg hover:bg-slate-700 transition border border-slate-700 cursor-pointer">
+                          <h4 className="font-bold text-blue-400 mb-2 hover:underline">{item.title}</h4>
                           <p className="text-sm text-theme-secondary mb-3">{item.summary}</p>
                           <div className="flex items-center gap-4 text-xs font-semibold text-theme-muted">
                             <span>{new Date(item.publishedAt).toLocaleDateString()}</span>
@@ -428,7 +428,7 @@ export default function StockDetailsPage() {
                             <span className={`px-2 py-1 rounded-full ${item.impact === 'POSITIVE' ? 'bg-emerald-500/10 text-emerald-500' : item.impact === 'NEGATIVE' ? 'bg-rose-500/10 text-rose-500' : 'bg-slate-700 text-theme-secondary'}`}>{item.impact}</span>
                             {item.readTime && <span>{item.readTime} min read</span>}
                           </div>
-                        </div>
+                        </a>
                       ))}
                     </div>
                   ) : (
